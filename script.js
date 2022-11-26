@@ -107,12 +107,30 @@ closeContact.addEventListener('click', () => {
     imgIcon.style.transform = "scale(100%)";
 })
 
-const thankYouText = document.querySelector(".thank-you-text");
+/*
+THANK YOU NOTIFICATION
+*/
 
-window.addEventListener('hashchange', function () {
-    console.log('location changed!');
-    thankYouText.style.transform = "scale(100%)";
-});
+const thankYouText = document.querySelector(".thank-you-text");
+const sendBtn = document.querySelector(".send-btn");
+const contactInputs = document.querySelectorAll(".contact-input");
+
+sendBtn.addEventListener('click', () => {
+    let x = 0;
+    contactInputs.forEach(input => {
+        if(input.value === ""){
+            
+        } else {
+            x++;
+        }
+    });
+    if(x === 3){
+        thankYouText.style.transform = "scale(100%)";
+    }
+})
+
+// thankYouText.style.transform = "scale(100%)";
+// thankYouText.innerHTML = "Thank You!";
 
 /*
 PROJECTS CALL
