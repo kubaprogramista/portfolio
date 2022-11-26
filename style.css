@@ -350,16 +350,11 @@ floating animation
     border-radius: 25px;
     padding: 5vh 3vh 3vh 3vh;
     transform-origin: 0% 100%;
-    /* filter: opacity(0%);
-    transform: scale(0%); */
+    filter: opacity(0%);
+    transform: scale(0%);
     transition: all .3s ease-in-out;
 }
-/*-----------------------------------------------------------------DELETE THIS*/
-.about-section {
-    filter: opacity(100%);
-    transform: scale(100%);
-}
-/*----------------------------------------------------------------------------*/
+
 .form-bar {
     top: -2px;
     left: -2px;
