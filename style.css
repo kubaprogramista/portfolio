@@ -561,26 +561,33 @@ RESPONSYWNOŚĆ
     .about-section {
         display: flex;
         flex-direction: column;
-        border: 1px solid red;
         height: auto;
     }
-
     
     .about-left {
         margin: 0;
     }
     
     .form-container {
-        position: absolute;
+        transform: scale(100%);
+        filter: opacity(100%);
+        position: static;
         width: 100%;
         display: flex;
         flex-direction: row;
-        margin-left: -20px;
+        margin: 0 0 40px 0;
+    }
+
+    .contact-form {
+        width: 100%;
     }
 
     .about-right {
         width: 100%;
         position: relative;
-        border: 1px solid yellow;
+    }
+
+    .image-container {
+        position: absolute;
     }
 }
