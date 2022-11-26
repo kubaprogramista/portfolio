@@ -195,7 +195,7 @@ ABOUT SECTION CONTENT (LEFT SIDE)
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 0 0 150px 0;
+    margin: 0 0 5vh 0;
 }
 
 .about-heading {
@@ -550,6 +550,11 @@ RESPONSYWNOŚĆ
     input[type="text"], input[type="email"], textarea {
         font-size: .9rem;
     }
+
+    .contact-btn-content::after {
+        bottom: 1.5vh;
+    }
+    
 }
 
 @media only screen and (max-width:900px){
@@ -566,20 +571,25 @@ RESPONSYWNOŚĆ
     
     .about-left {
         margin: 0;
+        width: 100%;
     }
     
     .form-container {
-        transform: scale(100%);
-        filter: opacity(100%);
         position: static;
         width: 100%;
         display: flex;
         flex-direction: row;
         margin: 0 0 40px 0;
+        transform-origin: 0% 0%;
     }
 
     .contact-form {
         width: 100%;
+    }
+
+    .contact-links {
+        align-items: flex-end;
+        width: 35%;
     }
 
     .about-right {
@@ -587,7 +597,43 @@ RESPONSYWNOŚĆ
         position: relative;
     }
 
+    .image-icon-container {
+        top: -15vh;
+    }
+
     .image-container {
         position: absolute;
+        top: 0;
+    }
+}
+
+@media only screen and (max-width:700px){
+
+    .form-container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contact-links {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+@media only screen and (max-width:900px){
+
+    .about-section {
+        width: 100vw;
+        border-left: 0;
+        border-right: 0;
+        border-radius: 0;
+    }
+
+    aside {
+        display: none;
+    }
+
+    .header-bar {
+        border-radius: 0;
     }
 }
