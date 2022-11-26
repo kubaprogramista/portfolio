@@ -405,7 +405,7 @@ floating animation
     font-family: 'Montserrat', sans-serif;
     color: black;
     font-size: 1.1rem;
-    margin: 10px 0 0 0;
+    margin: 10px 0;
     padding: 10px 20px;
     font-weight: bold;
     background: transparent;
@@ -439,6 +439,19 @@ floating animation
 
 .contact-links img {
     width: 65px;
+}
+
+.thank-you-section {
+    display: flex;
+    align-items: center;
+}
+
+.thank-you-text {
+    margin: 25px;
+    letter-spacing: 1px;
+    font-size: 1.3rem;
+    transform: scale(0%);
+    transition: all .3s ease-in-out;
 }
 
 /*

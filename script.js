@@ -107,6 +107,13 @@ closeContact.addEventListener('click', () => {
     imgIcon.style.transform = "scale(100%)";
 })
 
+const thankYouText = document.querySelector(".thank-you-text");
+
+window.addEventListener('hashchange', function () {
+    console.log('location changed!');
+    thankYouText.style.transform = "scale(100%)";
+});
+
 /*
 PROJECTS CALL
 */
