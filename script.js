@@ -160,3 +160,16 @@ projectsIcon.addEventListener('click', function () {
 closeProjects.addEventListener('click', function () {
     closeFunction(projectsSection, projectsIcon, closeProjects);
 });
+
+const gameSection = document.querySelector(".game-section");
+const closeGameBtn = document.querySelector(".close-game-section");
+const gameIcon = document.querySelector("#game-icon");
+
+gameIcon.addEventListener('click', function () {
+    openFunction(gameSection, gameIcon, closeGameBtn);
+});
+
+
+closeGameBtn.addEventListener('click', function () {
+    closeFunction(gameSection, gameIcon, closeGameBtn);
+});

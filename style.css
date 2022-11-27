@@ -500,6 +500,43 @@ PROJECTS
 }
 
 /*
+GAME
+*/
+
+.game-section {
+    position: absolute;
+    top: 0;
+    width: 70vw;
+    height: auto;
+    /* 10vh - header, 5vh - margin */
+    margin: 15vh 0 0 0;
+    border-radius: 20px;
+    backdrop-filter: blur(3px);
+    padding: 80px 6vw;
+    background-color: rgba(255,255,255, 0.2);
+    display: flex;
+    gap: 5vw;
+    transform-origin: 0% 0%;
+    transform: scale(0%);
+    transition: all .3s ease-in-out;
+}
+
+.game-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 100%;
+}
+
+.game-info {
+    font-size: 2rem;
+    font-weight: 600;
+    text-shadow: 0px 2px 4px rgba(0,0,0,0.55);
+}
+
+/*
 RESPONSYWNOŚĆ
 */
 
@@ -605,22 +642,6 @@ RESPONSYWNOŚĆ
         position: absolute;
         top: 0;
     }
-}
-
-@media only screen and (max-width:700px){
-
-    .form-container{
-        display: flex;
-        flex-direction: column;
-    }
-
-    .contact-links {
-        display: flex;
-        flex-direction: row;
-    }
-}
-
-@media only screen and (max-width:900px){
 
     .about-section {
         width: 100vw;
@@ -633,7 +654,21 @@ RESPONSYWNOŚĆ
         display: none;
     }
 
-    .header-bar {
+    .close-about-section {
         border-radius: 0;
+    }
+}
+
+
+@media only screen and (max-width:700px){
+
+    .form-container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contact-links {
+        display: flex;
+        flex-direction: row;
     }
 }
