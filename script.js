@@ -145,9 +145,6 @@ sendBtn.addEventListener('click', () => {
     }
 })
 
-// thankYouText.style.transform = "scale(100%)";
-// thankYouText.innerHTML = "Thank You!";
-
 /*
 PROJECTS CALL
 */
