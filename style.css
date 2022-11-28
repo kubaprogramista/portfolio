@@ -447,6 +447,7 @@ floating animation
     letter-spacing: 1px;
     font-size: 1.3rem;
     transform: scale(0%);
+    filter: opacity(0%);
     transition: all .3s ease-in-out;
 }
 
@@ -654,8 +655,12 @@ RESPONSYWNOŚĆ
         display: none;
     }
 
-    .close-about-section {
+    .header-bar {
         border-radius: 0;
+    }
+
+    .header-bar-btn {
+        border-radius: 100%;
     }
 }
 

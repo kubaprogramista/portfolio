@@ -75,15 +75,17 @@ imgIcon.addEventListener('click', () => {
     imgContainer.style.filter = "opacity(100%)";
     imgIcon.style.filter = "opacity(0%)";
     
-    imgIcon.style.cursor = "pointer";
+    imgIcon.style.cursor = "default";
     closeImg.style.cursor = "pointer";
 })
 
 closeImg.addEventListener('click', () => {
+    isImgOpen = false;
     imgContainer.style.transform = "scale(0%)";
     
     imgIcon.style.filter = "opacity(100%)";
     imgIcon.style.cursor = "pointer";
+    closeImg.style.cursor = "default";
 })
 
 /*
@@ -92,24 +94,24 @@ CONTACT FORM CALL
 
 const contactSection = document.querySelector(".form-container");
 const contactBtn = document.querySelector(".contact-btn");
-const closeContact = document.querySelector("#close-contact-form");
+const closeContact = document.querySelector("#close-contact-form"); 
+const thankYouText = document.querySelector(".thank-you-text");
 
 contactBtn.addEventListener('click', () => {
     contactSection.style.transform = "scale(100%)";
     contactSection.style.filter = "opacity(100%)";
     imgIcon.style.filter = "opacity(0%)";
+    imgIcon.style.transform = "scale(0%)";
+
+    closeContact.style.cursor = "pointer";
 
     if(isImgOpen == true) {
-        isImgOpen = false;
         imgContainer.style.transform = "scale(0%)";
         imgIcon.style.transform = "scale(0%)";
-
+        
         imgIcon.style.filter = "opacity(100%)";
         imgIcon.style.cursor = "pointer";
-    } else {
-        setTimeout(() => {
-            imgIcon.style.transform = "scale(0%)";
-        }, 1000);
+        isImgOpen = false;
     }
 })
 
@@ -117,13 +119,14 @@ closeContact.addEventListener('click', () => {
     contactSection.style.transform = "scale(0%)";
     imgIcon.style.filter = "opacity(100%)";
     imgIcon.style.transform = "scale(100%)";
+
+    closeContact.style.cursor = "default";
 })
 
 /*
 THANK YOU NOTIFICATION
 */
 
-const thankYouText = document.querySelector(".thank-you-text");
 const sendBtn = document.querySelector(".send-btn");
 const contactInputs = document.querySelectorAll(".contact-input");
 
@@ -138,6 +141,7 @@ sendBtn.addEventListener('click', () => {
     });
     if(x === 3){
         thankYouText.style.transform = "scale(100%)";
+        thankYouText.style.filter = "opacity(100%)";
     }
 })
 
