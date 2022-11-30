@@ -507,6 +507,11 @@ PROJECTS
     font-size: 2rem;
 }
 
+.project-container img {
+    aspect-ratio: 16/10;
+    width: 300px;
+}
+
 /*
 GAME
 */
