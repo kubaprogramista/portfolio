@@ -220,7 +220,7 @@ function randomPrizes() {
 window.onload = randomPrizes();
 
 let checkIfScratched = false;
-let countScratches = 0;
+let countScratches = 0; 
 
 const title = document.querySelector('.game-title');
 
@@ -230,14 +230,24 @@ canvasArray.forEach(canvas => {
             checkIfScratched = true;
             if(checkIfScratched) {
                 countScratches++;
-                console.log(countScratches);
             }
             if(countScratches === 9){
-                title.innerHTML = "you won!";
+                ifGameOver();
             }
         }, 2000);
     }, {once : true})
 });
+
+let gameResult = 0;
+
+function ifGameOver() {
+    for(const numberOfPlanets in dynamicPlanetCounter){
+        if(dynamicPlanetCounter[numberOfPlanets] >= 3) {
+            gameResult = 1;
+        }
+    }
+    title.innerHTML = "You Won!";
+}
 
 canvasArray.forEach(canvas => {
     let ctx = canvas.getContext('2d');
