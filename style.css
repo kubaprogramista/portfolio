@@ -642,6 +642,12 @@ GAME
     text-shadow: 0px 2px 4px rgba(0,0,0,1);
 }
 
+.scratch-box {
+    background-image: url('png/game_png/neptune.png');
+    background-size: 65%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 /*
 RESPONSYWNOŚĆ
 */

@@ -180,9 +180,47 @@ closeGameBtn.addEventListener('click', function () {
 GAME
 */
 
+const overlayArray = [
+    
+];
+
 const canvasArray = document.querySelectorAll('.scratch-box');
+const canvasOverlay = "png/game_png/overlay.png";
+
 
 canvasArray.forEach(canvas => {
+    let ctx = canvas.getContext('2d');
     canvas.width = 150;
     canvas.height = 150;
+
+    function scratcher(canvas, overlay){
+        canvas.mycanvas = canvas.getContext('2d');
+        canvas.img = new Image();
+        canvas.img.src = overlay;
+        canvas.img.onload = function(){
+            canvas.mycanvas.drawImage(this, 0,0, canvas.width, canvas.height);
+        }
+    }
+
+    function getBrushPosition(ctx, xReference, yReference){
+        let rectangleInfo = (ctx.canvas).getBoundingClientRect();
+        return {
+            x: Math.floor((xReference-rectangleInfo.left)/(rectangleInfo.right-rectangleInfo.left)*150),
+            y: Math.floor((yReference-rectangleInfo.top)/(rectangleInfo.bottom-rectangleInfo.top)*150)
+        }
+    };
+    
+    function drawDot(ctx, mouseX, mouseY) {
+        let brushSize = 25;
+        ctx.beginPath();
+        ctx.arc(mouseX, mouseY, brushSize, 0, 2*Math.PI, true);
+        ctx.globalCompositeOperation = "destination-out";
+        ctx.fill();
+    }
+
+    canvas.addEventListener('mousemove', (e) => {
+        let brushPosition = getBrushPosition(ctx, e.clientX, e.clientY);
+        drawDot(ctx, brushPosition.x, brushPosition.y);
+    }, false);
+    window.onload = scratcher(canvas, canvasOverlay);
 });
