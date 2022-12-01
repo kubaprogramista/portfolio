@@ -174,3 +174,15 @@ gameIcon.addEventListener('click', function () {
 closeGameBtn.addEventListener('click', function () {
     closeFunction(gameSection, gameIcon, closeGameBtn);
 });
+
+
+/*
+GAME
+*/
+
+const canvasArray = document.querySelectorAll('.scratch-box');
+
+canvasArray.forEach(canvas => {
+    canvas.width = 150;
+    canvas.height = 150;
+});

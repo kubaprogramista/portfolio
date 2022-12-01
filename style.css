@@ -85,6 +85,7 @@ header {
     font-size: 2.2rem;
     text-align: center;
     cursor: default;
+    user-select: none;
     z-index: -1;
     position: relative;
 }
@@ -108,6 +109,7 @@ main {
     position: fixed;
     right: 2vw;
     bottom: 0;
+    user-select: none;
     filter: grayscale(60%);
     transform: scaleX(-1);
 }
@@ -320,6 +322,7 @@ ABOUT SECTION CONTENT (RIGHT SIDE)
 
 .image-container img {
     width: 350px;
+    user-select: none;
     filter: grayscale(50%);
     transform: translateY(-20px);
     animation: floating 7s ease-in-out infinite;
@@ -537,7 +540,7 @@ GAME
 .game-section {
     position: absolute;
     top: 0;
-    width: 70vw;
+    width: 90vw;
     height: auto;
     /* 10vh - header, 5vh - margin */
     margin: 15vh 0 0 0;
@@ -551,6 +554,7 @@ GAME
     transform-origin: 0% 0%;
     transform: scale(0%);
     */
+    z-index: 1;
     transition: all .3s ease-in-out;
 }
 
@@ -559,14 +563,53 @@ GAME
     justify-content: center;
     align-items: center;
     justify-content: flex-start;
-    flex-direction: column;
+    gap: 1vw;
+    padding: 0;
     width: 100%;
 }
 
-.game-info {
+.game-section section {
+    border: 1px solid red;
+}
+
+.game-statistics {
+    width: 25vw;
+}
+
+.game-window {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(20,20,20,0.8);
+}
+
+.game-title {
     font-size: 2rem;
     font-weight: 600;
     text-shadow: 0px 2px 4px rgba(0,0,0,0.55);
+}
+
+.game-window hr {
+    width: 100%;
+    height: 2px;
+    background-color: black;
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+    gap: 15px;
+    padding: 20px;
+}
+
+.game-grid canvas {
+    border: 1px solid rgba(255,255,255,0.8);
+    border-radius: 20px;
+}
+
+.game-legend {
+
 }
 
 /*
