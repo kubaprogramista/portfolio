@@ -33,7 +33,7 @@ body {
     background: rgb(47,47,47);
     width: 100vw;
     min-height: 100vh;
-    background: url("png/background.jpg");
+    background: url("png/background_resized.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -546,7 +546,7 @@ GAME
     margin: 15vh 0 0 0;
     border-radius: 20px;
     backdrop-filter: blur(3px);
-    padding: 80px 6vw;
+    padding: 80px 4vw;
     background-color: rgba(255,255,255, 0.2);
     display: flex;
     gap: 5vw;
@@ -568,22 +568,37 @@ GAME
     width: 100%;
 }
 
-.game-section section {
-    border: 1px solid red;
+.game-statistics {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 0 1vw;
+    height: 100%;
+    width: 25vw;
+    border-radius: 20px;
+    border: 1px solid rgba(0,0,0, 0.18);
+    background: linear-gradient(rgba(0,0,0, 0.6), rgba(0,0,0, 0.4));
+    box-shadow: 0 8px 32px 0 rgba(0,0,0, 0.4);
 }
 
-.game-statistics {
-    width: 25vw;
+.game-statistics p {
+    font-size: 2rem;
+    text-shadow: 0px 2px 4px rgba(0,0,0,1);
 }
 
 .game-window {
+    width: 35vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgba(20,20,20,0.8);
+    border-radius: 20px;
+    border: 1px solid rgba(0,0,0, 0.18);
+    background: linear-gradient(rgba(0,0,0, 0.6), rgba(0,0,0, 0.4));
+    box-shadow: 0 8px 32px 0 rgba(0,0,0, 0.4);
 }
 
 .game-title {
+    padding: 1vw;
     font-size: 2rem;
     font-weight: 600;
     text-shadow: 0px 2px 4px rgba(0,0,0,0.55);
@@ -591,8 +606,8 @@ GAME
 
 .game-window hr {
     width: 100%;
-    height: 2px;
-    background-color: black;
+    height: 1px;
+    background-color: rgba(0,0,0, 0.5);
 }
 
 .game-grid {
@@ -609,7 +624,22 @@ GAME
 }
 
 .game-legend {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0 1vw;
+    width: 25vw;
+    height: 100%;
+    border-radius: 20px;
+    border: 1px solid rgba(0,0,0, 0.18);
+    background: linear-gradient(rgba(0,0,0, 0.6), rgba(0,0,0, 0.4));
+    box-shadow: 0 8px 32px 0 rgba(0,0,0, 0.4);
+}
 
+.game-legend p {
+    font-size: 2rem;
+    text-shadow: 0px 2px 4px rgba(0,0,0,1);
 }
 
 /*
