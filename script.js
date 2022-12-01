@@ -189,13 +189,34 @@ const overlayArray = [
     "url('png/game_png/saturn.png')",
 ];
 
+let dynamicPlanetCounter = {
+    "neptune": 0,
+    "jupiter": 0,
+    "earth": 0,
+    "saturn": 0,
+}
+
 function randomPrizes() {
     canvasArray.forEach(canvas => {
         let random = Math.floor(Math.random() * (overlayArray.length));
         canvas.style.backgroundImage = overlayArray[random];
+
+        switch (random) {
+            case 0:
+                dynamicPlanetCounter.neptune++;
+                break;
+            case 1:
+                dynamicPlanetCounter.jupiter++;
+                break;
+            case 2:
+                dynamicPlanetCounter.earth++;
+                break;
+            case 3:
+                dynamicPlanetCounter.saturn++;
+                break;
+        }
     });
 }
-
 window.onload = randomPrizes();
 
 canvasArray.forEach(canvas => {
