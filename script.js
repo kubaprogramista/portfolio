@@ -179,14 +179,24 @@ closeGameBtn.addEventListener('click', function () {
 /*
 GAME
 */
-
-const overlayArray = [
-    
-];
-
 const canvasArray = document.querySelectorAll('.scratch-box');
 const canvasOverlay = "png/game_png/overlay.png";
 
+const overlayArray = [
+    "url('png/game_png/neptune.png')",
+    "url('png/game_png/jupiter.png')",
+    "url('png/game_png/earth.png')",
+    "url('png/game_png/saturn.png')",
+];
+
+function randomPrizes() {
+    canvasArray.forEach(canvas => {
+        let random = Math.floor(Math.random() * (overlayArray.length));
+        canvas.style.backgroundImage = overlayArray[random];
+    });
+}
+
+window.onload = randomPrizes();
 
 canvasArray.forEach(canvas => {
     let ctx = canvas.getContext('2d');
