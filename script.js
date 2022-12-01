@@ -219,6 +219,26 @@ function randomPrizes() {
 }
 window.onload = randomPrizes();
 
+let checkIfScratched = false;
+let countScratches = 0;
+
+const title = document.querySelector('.game-title');
+
+canvasArray.forEach(canvas => {
+    canvas.addEventListener('mouseover', () => {
+        setTimeout(() => {
+            checkIfScratched = true;
+            if(checkIfScratched) {
+                countScratches++;
+                console.log(countScratches);
+            }
+            if(countScratches === 9){
+                title.innerHTML = "you won!";
+            }
+        }, 2000);
+    }, {once : true})
+});
+
 canvasArray.forEach(canvas => {
     let ctx = canvas.getContext('2d');
     canvas.width = 150;
@@ -244,11 +264,11 @@ canvasArray.forEach(canvas => {
     function drawDot(ctx, mouseX, mouseY) {
         let brushSize = 25;
         ctx.beginPath();
-        ctx.arc(mouseX, mouseY, brushSize, 0, 2*Math.PI, true);
+        ctx.arc(mouseX, mouseY, brushSize, 0, 2*Math.PI);
         ctx.globalCompositeOperation = "destination-out";
         ctx.fill();
     }
-
+    
     canvas.addEventListener('mousemove', (e) => {
         let brushPosition = getBrushPosition(ctx, e.clientX, e.clientY);
         drawDot(ctx, brushPosition.x, brushPosition.y);
