@@ -63,22 +63,23 @@ function newGame() {
 window.onload = newGame();
 
 const gamesPlayed = document.querySelector('.games-played');
-const gamesWon = document.querySelector('.games-won');
-let gameResult = 0;
 let gameCount = 1;
-let gameWonCount = 0;
-
 gamesPlayed.innerHTML = `${gameCount}`;
 
 function ifGameOver() {
-    gamesPlayed.innerHTML = `${gameCount}`;
+    const gamesWon = document.querySelector('.games-won');
+    let gameResult = 0;
+    let gameWonCount = 0;
+
     for(const numberOfPlanets in dynamicPlanetCounter){
         if(dynamicPlanetCounter[numberOfPlanets] >= 4) {
+            console.log(dynamicPlanetCounter[numberOfPlanets]);
             gameResult = 1;
         } else {
             gameResult = 0;
         }
     }
+
     if(gameResult === 1){
         title.innerHTML = "You Won!";
         gameWonCount++;
@@ -136,7 +137,6 @@ RESET GAME
 const resetButton = document.querySelector('.reset-game-button');
 
 resetButton.addEventListener('click', () => {
-    gameCount++;
     canvasHandler();
     randomPrizes();
     newGame();
