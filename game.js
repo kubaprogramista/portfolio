@@ -38,23 +38,26 @@ function randomPrizes() {
 }
 window.onload = randomPrizes();
 
-let checkIfScratched = false;
-let countScratches = 0; 
-
+const gamesPlayed = document.querySelector('.games-played');
 const title = document.querySelector('.game-title');
+let checkIfScratched = false;
+let gameCount = 1;
 
 function newGame() {
+    let countScratches = 0; 
+    gamesPlayed.innerHTML = `${gameCount}`;
+    gameCount++;
     canvasArray.forEach(canvas => {
         canvas.addEventListener('mouseover', () => {
-            setTimeout(() => {
-                checkIfScratched = true;
-                if(checkIfScratched) {
-                    countScratches++;
-                }
-                if(countScratches === 9){
+            checkIfScratched = true;
+            if(checkIfScratched) {
+                countScratches++;
+            }
+            if(countScratches === 9){
+                setTimeout(() => {
                     ifGameOver();
-                }
-            }, 2000);
+                }, 2000);
+            }
         }, {once : true})
     });
 
@@ -62,31 +65,37 @@ function newGame() {
 
 window.onload = newGame();
 
-const gamesPlayed = document.querySelector('.games-played');
-let gameCount = 1;
-gamesPlayed.innerHTML = `${gameCount}`;
+const gamesWon = document.querySelector('.games-won');
+let gameResult = false;
+let gameWonCount = 0;
+gamesWon.innerHTML = `${gameWonCount}`;
 
 function ifGameOver() {
-    const gamesWon = document.querySelector('.games-won');
-    let gameResult = 0;
-    let gameWonCount = 0;
-
     for(const numberOfPlanets in dynamicPlanetCounter){
         if(dynamicPlanetCounter[numberOfPlanets] >= 4) {
-            console.log(dynamicPlanetCounter[numberOfPlanets]);
-            gameResult = 1;
+            //game won
+            gameResult = true;
+            break;
         } else {
-            gameResult = 0;
+            //game lost
+            gameResult = false;
         }
     }
-
-    if(gameResult === 1){
+    console.log(dynamicPlanetCounter);
+    if(gameResult){
         title.innerHTML = "You Won!";
         gameWonCount++;
         gamesWon.innerHTML = `${gameWonCount}`;
     } else {
         title.innerHTML = "You lost.";
-    }
+    }      
+}
+
+function dataReset() {
+    dynamicPlanetCounter.neptune = 0;
+    dynamicPlanetCounter.jupiter = 0;
+    dynamicPlanetCounter.earth = 0;
+    dynamicPlanetCounter.saturn = 0;
 }
 
 function canvasHandler() {
@@ -141,5 +150,6 @@ resetButton.addEventListener('click', () => {
     randomPrizes();
     newGame();
     ifGameOver();
+    dataReset()
     title.innerHTML = "Scratch Cards!";
 });
