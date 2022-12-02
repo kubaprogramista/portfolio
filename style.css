@@ -685,8 +685,15 @@ GAME
     text-align: center;
 }
 
+.legend-item {
+    display: block;
+    background: url(png/game_png/earth.png);
+    background-size: 50px;
+    width: 48%;
+    height: 50px;
+}
+
 .scratch-box {
-    background-image: url('png/game_png/neptune.png');
     background-size: 65%;
     background-repeat: no-repeat;
     background-position: center;

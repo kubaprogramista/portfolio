@@ -2,25 +2,25 @@ const canvasArray = document.querySelectorAll('.scratch-box');
 const canvasOverlay = "png/game_png/overlay.png";
 
 const planetsArray = [
-    "url('png/game_png/neptune.png')",
-    "url('png/game_png/jupiter.png')",
-    "url('png/game_png/earth.png')",
-    "url('png/game_png/saturn.png')",
-    "url('png/game_png/mars.png')",
-    "url('png/game_png/moon.png')",
     "url('png/game_png/uranus.png')",
+    "url('png/game_png/neptune.png')",
+    "url('png/game_png/saturn.png')",
     "url('png/game_png/venus.png')",
+    "url('png/game_png/jupiter.png')",
+    "url('png/game_png/mars.png')",
+    "url('png/game_png/earth.png')",
+    "url('png/game_png/moon.png')",
 ];
 
 let dynamicPlanetCounter = {
-    "neptune": 0,
-    "jupiter": 0,
-    "earth": 0,
-    "saturn": 0,
-    "mars": 0,
-    "moon": 0,
     "uranus": 0,
+    "neptune": 0,
+    "saturn": 0,
     "venus": 0,
+    "jupiter": 0,
+    "mars": 0,
+    "earth": 0,
+    "moon": 0,
 }
 
 function randomPrizes() {
@@ -30,28 +30,28 @@ function randomPrizes() {
 
         switch (random) {
             case 0:
-                dynamicPlanetCounter.neptune++;
-                break;
-            case 1:
-                dynamicPlanetCounter.jupiter++;
-                break;
-            case 2:
-                dynamicPlanetCounter.earth++;
-                break;
-            case 3:
-                dynamicPlanetCounter.saturn++;
-                break;
-            case 4:
-                dynamicPlanetCounter.mars++;
-                break;
-            case 5:
-                dynamicPlanetCounter.moon++;
-                break;
-            case 6:
                 dynamicPlanetCounter.uranus++;
                 break;
-            case 7:
+            case 1:
+                dynamicPlanetCounter.neptune++;
+                break;
+            case 2:
+                dynamicPlanetCounter.saturn++;
+                break;
+            case 3:
                 dynamicPlanetCounter.venus++;
+                break;
+            case 4:
+                dynamicPlanetCounter.jupiter++;
+                break;
+            case 5:
+                dynamicPlanetCounter.mars++;
+                break;
+            case 6:
+                dynamicPlanetCounter.earth++;
+                break;
+            case 7:
+                dynamicPlanetCounter.moon++;
                 break;
         }
     });
