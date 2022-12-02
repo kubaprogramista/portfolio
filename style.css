@@ -597,18 +597,24 @@ GAME
 
 .game-window-header {
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
+    height: 9vh;
+    margin: 0 0 0 1vw;
 }
 
 .game-title {
-    font-size: 1.5rem;
+    text-align: left;
+    font-size: 2rem;
     font-weight: 600;
     text-shadow: 0px 2px 4px rgba(0,0,0,0.55);
 }
 
 .reset-game-button {
-    width: 50%;
+    position: absolute;
+    right: 1vw;
+    top: 1vh;
+    width: 43%;
+    height: 6vh;
     height: auto;
     border-radius: 15px;
     background-color: rgba(40, 40, 40, 0.3);
@@ -633,6 +639,7 @@ GAME
 
 .reset-icon {
     font-size: 3rem;
+    transition: all .3s ease-in-out;
 }
 
 .game-window hr {

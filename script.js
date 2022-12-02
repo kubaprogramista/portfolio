@@ -293,7 +293,3 @@ RESET GAME
 
 const resetIcon = document.querySelector('.reset-icon');
 const resetButton = document.querySelector('.reset-game-button');
-
-resetButton.addEventListener('click', () => {
-    resetIcon.style.transform = 'rotate(360deg)';
-})
