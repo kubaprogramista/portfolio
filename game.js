@@ -9,7 +9,6 @@ const planetsArray = [
     "url('png/game_png/jupiter.png')",
     "url('png/game_png/mars.png')",
     "url('png/game_png/earth.png')",
-    "url('png/game_png/moon.png')",
 ];
 
 let dynamicPlanetCounter = {
@@ -20,7 +19,6 @@ let dynamicPlanetCounter = {
     "jupiter": 0,
     "mars": 0,
     "earth": 0,
-    "moon": 0,
 }
 
 function randomPrizes() {
@@ -50,13 +48,20 @@ function randomPrizes() {
             case 6:
                 dynamicPlanetCounter.earth++;
                 break;
-            case 7:
-                dynamicPlanetCounter.moon++;
-                break;
         }
     });
 }
 window.onload = randomPrizes();
+
+function dataReset() {
+    dynamicPlanetCounter.uranus = 0;
+    dynamicPlanetCounter.neptune = 0;
+    dynamicPlanetCounter.saturn = 0;
+    dynamicPlanetCounter.venus = 0;
+    dynamicPlanetCounter.jupiter = 0;
+    dynamicPlanetCounter.mars = 0;
+    dynamicPlanetCounter.earth = 0;
+}
 
 const gamesPlayed = document.querySelector('.games-played');
 const title = document.querySelector('.game-title');
@@ -93,14 +98,13 @@ function ifGameOver() {
     let gameResult = 0;
     for(const numberOfPlanets in dynamicPlanetCounter){
         //specify number of planets to win a game
-        if(dynamicPlanetCounter[numberOfPlanets] >= 3) {
+        if(dynamicPlanetCounter[numberOfPlanets] >= 4) {
             //game won
             gameResult++;
         } else {
             //game lost
         }
     }
-    console.log(dynamicPlanetCounter);
     if(gameResult > 0){
         title.innerHTML = "You Won!";
         gameWonCount++;
@@ -108,17 +112,6 @@ function ifGameOver() {
     } else if (gameResult == 0) {
         title.innerHTML = "You lost.";
     }      
-}
-
-function dataReset() {
-    dynamicPlanetCounter.uranus = 0;
-    dynamicPlanetCounter.neptune = 0;
-    dynamicPlanetCounter.saturn = 0;
-    dynamicPlanetCounter.venus = 0;
-    dynamicPlanetCounter.jupiter = 0;
-    dynamicPlanetCounter.mars = 0;
-    dynamicPlanetCounter.earth = 0;
-    dynamicPlanetCounter.moon = 0;
 }
 
 function canvasHandler() {

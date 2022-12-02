@@ -302,6 +302,8 @@ ABOUT SECTION CONTENT (RIGHT SIDE)
 
 .image-container {
     display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
     width: 350px;
     height: 350px;
@@ -321,7 +323,9 @@ ABOUT SECTION CONTENT (RIGHT SIDE)
 }
 
 .image-container img {
-    width: 350px;
+    aspect-ratio: 1/1;
+    width: 220px;
+    height: 220px;
     user-select: none;
     filter: grayscale(50%);
     transform: translateY(-20px);
