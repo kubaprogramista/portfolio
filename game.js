@@ -41,6 +41,18 @@ function randomPrizes() {
             case 3:
                 dynamicPlanetCounter.saturn++;
                 break;
+            case 4:
+                dynamicPlanetCounter.mars++;
+                break;
+            case 5:
+                dynamicPlanetCounter.moon++;
+                break;
+            case 6:
+                dynamicPlanetCounter.uranus++;
+                break;
+            case 7:
+                dynamicPlanetCounter.venus++;
+                break;
         }
     });
 }
@@ -80,6 +92,7 @@ gamesWon.innerHTML = `${gameWonCount}`;
 function ifGameOver() {
     let gameResult = 0;
     for(const numberOfPlanets in dynamicPlanetCounter){
+        //specify number of planets to win a game
         if(dynamicPlanetCounter[numberOfPlanets] >= 4) {
             //game won
             gameResult++;
