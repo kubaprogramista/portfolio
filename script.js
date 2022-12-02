@@ -240,13 +240,26 @@ canvasArray.forEach(canvas => {
 
 let gameResult = 0;
 
+const gamesPlayed = document.querySelector('.games-played');
+const gamesWon = document.querySelector('.games-won');
+let gameCount = 0;
+let gameWonCount = 0;
+
 function ifGameOver() {
+    ++gameCount;
+    gamesPlayed.innerHTML = `${gameCount}`;
     for(const numberOfPlanets in dynamicPlanetCounter){
-        if(dynamicPlanetCounter[numberOfPlanets] >= 3) {
+        if(dynamicPlanetCounter[numberOfPlanets] >= 4) {
             gameResult = 1;
         }
     }
-    title.innerHTML = "You Won!";
+    if(gameResult === 1){
+        title.innerHTML = "You Won!";
+        ++gameWonCount;
+        gamesWon.innerHTML = `${gameWonCount}`;
+    } else {
+        title.innerHTML = "You lost.";
+    }
 }
 
 canvasArray.forEach(canvas => {
