@@ -182,7 +182,7 @@ GAME
 const canvasArray = document.querySelectorAll('.scratch-box');
 const canvasOverlay = "png/game_png/overlay.png";
 
-const overlayArray = [
+const planetsArray = [
     "url('png/game_png/neptune.png')",
     "url('png/game_png/jupiter.png')",
     "url('png/game_png/earth.png')",
@@ -198,8 +198,8 @@ let dynamicPlanetCounter = {
 
 function randomPrizes() {
     canvasArray.forEach(canvas => {
-        let random = Math.floor(Math.random() * (overlayArray.length));
-        canvas.style.backgroundImage = overlayArray[random];
+        let random = Math.floor(Math.random() * (planetsArray.length));
+        canvas.style.backgroundImage = planetsArray[random];
 
         switch (random) {
             case 0:
@@ -224,85 +224,103 @@ let countScratches = 0;
 
 const title = document.querySelector('.game-title');
 
-canvasArray.forEach(canvas => {
-    canvas.addEventListener('mouseover', () => {
-        setTimeout(() => {
-            checkIfScratched = true;
-            if(checkIfScratched) {
-                countScratches++;
-            }
-            if(countScratches === 9){
-                ifGameOver();
-            }
-        }, 2000);
-    }, {once : true})
-});
+function newGame() {
+    canvasArray.forEach(canvas => {
+        canvas.addEventListener('mouseover', () => {
+            setTimeout(() => {
+                checkIfScratched = true;
+                if(checkIfScratched) {
+                    countScratches++;
+                }
+                if(countScratches === 9){
+                    ifGameOver();
+                }
+            }, 2000);
+        }, {once : true})
+    });
 
-let gameResult = 0;
+}
+
+window.onload = newGame();
 
 const gamesPlayed = document.querySelector('.games-played');
 const gamesWon = document.querySelector('.games-won');
-let gameCount = 0;
+let gameResult = 0;
+let gameCount = 1;
 let gameWonCount = 0;
 
+gamesPlayed.innerHTML = `${gameCount}`;
+
 function ifGameOver() {
-    ++gameCount;
     gamesPlayed.innerHTML = `${gameCount}`;
     for(const numberOfPlanets in dynamicPlanetCounter){
         if(dynamicPlanetCounter[numberOfPlanets] >= 4) {
             gameResult = 1;
+        } else {
+            gameResult = 0;
         }
     }
     if(gameResult === 1){
         title.innerHTML = "You Won!";
-        ++gameWonCount;
+        gameWonCount++;
         gamesWon.innerHTML = `${gameWonCount}`;
     } else {
         title.innerHTML = "You lost.";
     }
 }
 
-canvasArray.forEach(canvas => {
-    let ctx = canvas.getContext('2d');
-    canvas.width = 150;
-    canvas.height = 150;
-
-    function scratcher(canvas, overlay){
-        canvas.mycanvas = canvas.getContext('2d');
-        canvas.img = new Image();
-        canvas.img.src = overlay;
-        canvas.img.onload = function(){
-            canvas.mycanvas.drawImage(this, 0,0, canvas.width, canvas.height);
-        }
-    }
-
-    function getBrushPosition(ctx, xReference, yReference){
-        let rectangleInfo = (ctx.canvas).getBoundingClientRect();
-        return {
-            x: Math.floor((xReference-rectangleInfo.left)/(rectangleInfo.right-rectangleInfo.left)*150),
-            y: Math.floor((yReference-rectangleInfo.top)/(rectangleInfo.bottom-rectangleInfo.top)*150)
-        }
-    };
+function canvasHandler() {
+    canvasArray.forEach(canvas => {
+        let ctx = canvas.getContext('2d');
+        canvas.width = 150;
+        canvas.height = 150;
     
-    function drawDot(ctx, mouseX, mouseY) {
-        let brushSize = 25;
-        ctx.beginPath();
-        ctx.arc(mouseX, mouseY, brushSize, 0, 2*Math.PI);
-        ctx.globalCompositeOperation = "destination-out";
-        ctx.fill();
-    }
+        function scratcher(canvas, overlay){
+            canvas.mycanvas = canvas.getContext('2d');
+            canvas.img = new Image();
+            canvas.img.src = overlay;
+            canvas.img.onload = function(){
+                canvas.mycanvas.drawImage(this, 0,0, canvas.width, canvas.height);
+            }
+        }
     
-    canvas.addEventListener('mousemove', (e) => {
-        let brushPosition = getBrushPosition(ctx, e.clientX, e.clientY);
-        drawDot(ctx, brushPosition.x, brushPosition.y);
-    }, false);
-    window.onload = scratcher(canvas, canvasOverlay);
-});
+        function getBrushPosition(ctx, xReference, yReference){
+            let rectangleInfo = (ctx.canvas).getBoundingClientRect();
+            return {
+                x: Math.floor((xReference-rectangleInfo.left)/(rectangleInfo.right-rectangleInfo.left)*150),
+                y: Math.floor((yReference-rectangleInfo.top)/(rectangleInfo.bottom-rectangleInfo.top)*150)
+            }
+        };
+        
+        function drawDot(ctx, mouseX, mouseY) {
+            let brushSize = 25;
+            ctx.beginPath();
+            ctx.arc(mouseX, mouseY, brushSize, 0, 2*Math.PI);
+            ctx.globalCompositeOperation = "destination-out";
+            ctx.fill();
+        }
+        
+        canvas.addEventListener('mousemove', (e) => {
+            let brushPosition = getBrushPosition(ctx, e.clientX, e.clientY);
+            drawDot(ctx, brushPosition.x, brushPosition.y);
+        }, false);
+        window.onload = scratcher(canvas, canvasOverlay);
+    });
+}
 
+window.onload = canvasHandler();
 
 /* 
 RESET GAME
 */
 
-const resetIcon = document.querySelector('.reset-icon');
 const resetButton = document.querySelector('.reset-game-button');
+
+resetButton.addEventListener('click', () => {
+    gameCount++;
+    canvasHandler();
+    randomPrizes();
+    newGame();
+    ifGameOver();
+    title.innerHTML = "Scratch Cards!";
+});
