@@ -6,6 +6,10 @@ const planetsArray = [
     "url('png/game_png/jupiter.png')",
     "url('png/game_png/earth.png')",
     "url('png/game_png/saturn.png')",
+    "url('png/game_png/mars.png')",
+    "url('png/game_png/moon.png')",
+    "url('png/game_png/uranus.png')",
+    "url('png/game_png/venus.png')",
 ];
 
 let dynamicPlanetCounter = {
@@ -13,6 +17,10 @@ let dynamicPlanetCounter = {
     "jupiter": 0,
     "earth": 0,
     "saturn": 0,
+    "mars": 0,
+    "moon": 0,
+    "uranus": 0,
+    "venus": 0,
 }
 
 function randomPrizes() {
@@ -75,7 +83,6 @@ function ifGameOver() {
         if(dynamicPlanetCounter[numberOfPlanets] >= 4) {
             //game won
             gameResult++;
-            console.log(dynamicPlanetCounter);
         } else {
             //game lost
         }
