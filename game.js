@@ -93,15 +93,15 @@ function ifGameOver() {
     let gameResult = 0;
     for(const numberOfPlanets in dynamicPlanetCounter){
         //specify number of planets to win a game
-        if(dynamicPlanetCounter[numberOfPlanets] >= 4) {
+        if(dynamicPlanetCounter[numberOfPlanets] >= 3) {
             //game won
             gameResult++;
         } else {
             //game lost
         }
     }
+    console.log(dynamicPlanetCounter);
     if(gameResult > 0){
-        console.log(gameResult);
         title.innerHTML = "You Won!";
         gameWonCount++;
         gamesWon.innerHTML = `${gameWonCount}`;
@@ -111,10 +111,14 @@ function ifGameOver() {
 }
 
 function dataReset() {
+    dynamicPlanetCounter.uranus = 0;
     dynamicPlanetCounter.neptune = 0;
-    dynamicPlanetCounter.jupiter = 0;
-    dynamicPlanetCounter.earth = 0;
     dynamicPlanetCounter.saturn = 0;
+    dynamicPlanetCounter.venus = 0;
+    dynamicPlanetCounter.jupiter = 0;
+    dynamicPlanetCounter.mars = 0;
+    dynamicPlanetCounter.earth = 0;
+    dynamicPlanetCounter.moon = 0;
 }
 
 function canvasHandler() {
