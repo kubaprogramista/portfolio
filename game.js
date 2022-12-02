@@ -66,7 +66,7 @@ function newGame() {
 window.onload = newGame();
 
 const gamesWon = document.querySelector('.games-won');
-let gameResult = false;
+let gameResult = 0;
 let gameWonCount = 0;
 gamesWon.innerHTML = `${gameWonCount}`;
 
@@ -74,19 +74,16 @@ function ifGameOver() {
     for(const numberOfPlanets in dynamicPlanetCounter){
         if(dynamicPlanetCounter[numberOfPlanets] >= 4) {
             //game won
-            gameResult = true;
-            break;
+            gameResult++;
         } else {
             //game lost
-            gameResult = false;
         }
     }
-    console.log(dynamicPlanetCounter);
-    if(gameResult){
+    if(gameResult > 0){
         title.innerHTML = "You Won!";
         gameWonCount++;
         gamesWon.innerHTML = `${gameWonCount}`;
-    } else {
+    } else if (gameResult == 0) {
         title.innerHTML = "You lost.";
     }      
 }
@@ -147,9 +144,9 @@ const resetButton = document.querySelector('.reset-game-button');
 
 resetButton.addEventListener('click', () => {
     canvasHandler();
-    randomPrizes();
     newGame();
     ifGameOver();
-    dataReset()
+    dataReset();
+    randomPrizes();
     title.innerHTML = "Scratch Cards!";
 });
