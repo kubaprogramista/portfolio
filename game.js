@@ -4,6 +4,7 @@ const resetButton = document.querySelector('.reset-game-button');
 const gamesPlayed = document.querySelector('.games-played');
 const title = document.querySelector('.game-title');
 const gamesWon = document.querySelector('.games-won');
+const balanceAmount = document.querySelector('.balance');
 
 const planetsArray = [
     "url('png/game_png/uranus.png')",
@@ -67,21 +68,28 @@ gamesWon.innerHTML = `${gameWonCount}`;
 
 let gamePrice = 100;
 let reward = 0;
+let balance = 500;
+let maxWinMultiply = 35;
+balanceAmount.innerHTML = `${balance}`;
 
 function ifGameOver() {
     let i = 0;
     let gameResult = false;
     for(const [key, value] of Object.entries(dynamicPlanetCounter)){
         //specify number of planets to win a game
-        if(value >= 3) {
+        if(value == 3) {
             //game won
-            console.log(`${key}: ${value}`);
-            console.log(i);
-            console.log(gamePrice * prizeSystem[i]);
-            reward = gamePrice * prizeSystem[i]
+            gameRewardHandler(prizeSystem[i]);
             gameResult = true;
-        } else {
-            //game lost
+        } else if(value == 4) {
+            gameRewardHandler(maxWinMultiply);
+            gameResult = true;
+        } else if(value == 5){
+            gameRewardHandler(100);
+            gameResult = true;
+        } else if(value == 6){
+            gameRewardHandler(1000);
+            gameResult = true;
         }
         i++;
     }
@@ -93,6 +101,13 @@ function ifGameOver() {
         title.innerHTML = "You lost.";
     }
     resetButton.classList.add("active");
+}
+
+function gameRewardHandler(multiplier) {
+    reward = gamePrice * multiplier
+    balance += reward;
+    balanceAmount.innerHTML = `${balance}`;
+    gameResult = true;
 }
 
 function canvasHandler() {
