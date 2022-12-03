@@ -669,7 +669,7 @@ GAME
 .game-legend {
     position: relative;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     padding: 0 1vw;
     width: 25vw;
@@ -687,23 +687,25 @@ GAME
     text-shadow: 0px 2px 3px rgba(0,0,0,1);
 }
 
-.legend-images {
-    width: 37.5%;
-    height: 75%;
+.legend-images, .legend-numbers {
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
+    width: 37.5%;
+    height: 100%;
+    margin: 3vh 0;
 }
 
 .legend-item {
     margin: .4vh 0;
 }
 
-.legend-numbers {
-    display: flex;
-    flex-direction: column;
+.legend-item:first-child {
+    padding: 0 100px;
+}
 
-    width: 35%;
-    height: 75%;
+.legend-numbers span:first-child {
+    padding: 0 50px;
 }
 
 .legend-numbers span {
@@ -712,6 +714,14 @@ GAME
     height: 49.84px;
     margin: 3.748px 0;
     font-size: 1.4rem;
+}
+
+.legend-item.any-planet {
+    display: block;
+    background: url(png/game_png/any-planet.png);
+    background-size: 50px;
+    width: 91%;
+    height: 50px;
 }
 
 .legend-item.uranus {

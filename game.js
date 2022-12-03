@@ -58,6 +58,17 @@ function randomPrizes() {
 }
 window.onload = randomPrizes();
 
+function dataReset() {
+    dynamicPlanetCounter.uranus = 0;
+    dynamicPlanetCounter.neptune = 0;
+    dynamicPlanetCounter.saturn = 0;
+    dynamicPlanetCounter.venus = 0;
+    dynamicPlanetCounter.jupiter = 0;
+    dynamicPlanetCounter.mars = 0;
+    dynamicPlanetCounter.earth = 0;
+    dynamicPlanetCounter.moon = 0;
+}
+
 const gamesPlayed = document.querySelector('.games-played');
 const title = document.querySelector('.game-title');
 let checkIfScratched = false;
@@ -80,7 +91,6 @@ function newGame() {
             }
         }, {once : true})
     });
-
 }
 
 window.onload = newGame();
@@ -107,17 +117,6 @@ function ifGameOver() {
     } else if (gameResult == 0) {
         title.innerHTML = "You lost.";
     }      
-}
-
-function dataReset() {
-    dynamicPlanetCounter.uranus = 0;
-    dynamicPlanetCounter.neptune = 0;
-    dynamicPlanetCounter.saturn = 0;
-    dynamicPlanetCounter.venus = 0;
-    dynamicPlanetCounter.jupiter = 0;
-    dynamicPlanetCounter.mars = 0;
-    dynamicPlanetCounter.earth = 0;
-    dynamicPlanetCounter.moon = 0;
 }
 
 function canvasHandler() {
