@@ -545,7 +545,7 @@ GAME
     position: absolute;
     top: 0;
     width: 90vw;
-    height: auto;
+    height: 83vh;
     margin: 15vh 0 0 0;
     border-radius: 20px;
     backdrop-filter: blur(3px);
@@ -797,19 +797,43 @@ GAME
     background-repeat: no-repeat;
     background-position: center;
 }
+
+.mobile-notification {
+    display: none;
+    width: 100%;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 0px 2px 4px rgba(0,0,0,.8);
+}
+
 /*
 RESPONSYWNOŚĆ
 */
 
 @media only screen and (max-width:1800px){
     .game-content {
+        height: 68vh;
         overflow-y: auto;
+        overflow-x: hidden;
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
     
     .game-legend {
         width: 470px;
+    }
+
+    .game-statistics {
+        justify-self: center;
+    }
+
+    .game-window {
+        justify-self: center;
+    }
+
+    .game-legend {
+        justify-self: center;
     }
 
     .form-container {
@@ -832,6 +856,36 @@ RESPONSYWNOŚĆ
         flex-direction: row;
         gap: 15px;
         margin: 10px 0 0 0;
+    }
+    
+    .game-legend p {
+        display: none;
+    }
+}
+
+@media only screen and (max-width:1300px){
+    body {
+        overflow: hidden;
+    }
+
+    .game-content {
+        grid-template-columns: 1fr;
+        justify-content: center;
+    }
+
+    .game-statistics {
+        order: 2;
+        height: 350px;
+        justify-content: space-between;
+        padding: 15px;
+    }
+
+    .game-window {
+        order: 1;
+    }
+
+    .game-legend {
+        order: 3;
     }
 }
 
@@ -920,6 +974,20 @@ RESPONSYWNOŚĆ
         border-right: 0;
         border-radius: 0;
     }
+    
+    .projects-section {
+        width: 100vw;
+        border-left: 0;
+        border-right: 0;
+        border-radius: 0;
+    }
+
+    .game-section {
+        width: 100vw;
+        border-left: 0;
+        border-right: 0;
+        border-radius: 0;
+    }
 
     aside {
         display: none;
@@ -936,7 +1004,6 @@ RESPONSYWNOŚĆ
 
 
 @media only screen and (max-width:700px){
-
     .form-container{
         display: flex;
         flex-direction: column;
@@ -945,5 +1012,13 @@ RESPONSYWNOŚĆ
     .contact-links {
         display: flex;
         flex-direction: row;
+    }
+
+    .game-content {
+        display: none;
+    }
+
+    .mobile-notification {
+        display: block;
     }
 }
