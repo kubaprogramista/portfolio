@@ -69,7 +69,6 @@ gamesWon.innerHTML = `${gameWonCount}`;
 let gamePrice = 100;
 let reward = 0;
 let balance = 500;
-let maxWinMultiply = 35;
 balanceAmount.innerHTML = `${balance}`;
 
 function ifGameOver() {
@@ -79,16 +78,16 @@ function ifGameOver() {
         //specify number of planets to win a game
         if(value == 3) {
             //game won
-            gameRewardHandler(prizeSystem[i]);
+            gameRewardHandler(prizeSystem[i], 1);
             gameResult = true;
         } else if(value == 4) {
-            gameRewardHandler(maxWinMultiply);
+            gameRewardHandler(prizeSystem[i], 2);
             gameResult = true;
         } else if(value == 5){
-            gameRewardHandler(100);
+            gameRewardHandler(prizeSystem[i], 4);
             gameResult = true;
         } else if(value == 6){
-            gameRewardHandler(1000);
+            gameRewardHandler(prizeSystem[i], 10);
             gameResult = true;
         }
         i++;
@@ -103,8 +102,8 @@ function ifGameOver() {
     resetButton.classList.add("active");
 }
 
-function gameRewardHandler(multiplier) {
-    reward = gamePrice * multiplier
+function gameRewardHandler(base, multiplier) {
+    reward = gamePrice * base * multiplier;
     balance += reward;
     balanceAmount.innerHTML = `${balance}`;
     gameResult = true;
