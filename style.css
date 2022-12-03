@@ -688,7 +688,7 @@ GAME
 }
 
 .legend-images {
-    width: 50%;
+    width: 37.5%;
     height: 75%;
     display: flex;
     flex-direction: column;
@@ -702,7 +702,7 @@ GAME
     display: flex;
     flex-direction: column;
 
-    width: 50%;
+    width: 35%;
     height: 75%;
 }
 
