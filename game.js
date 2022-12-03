@@ -205,5 +205,7 @@ resetButton.addEventListener('click', () => {
 
     dataReset();
     randomPlanetsHandler();
+    balance -= 100;
+    balanceAmount.innerHTML = `${balance}`;
     title.innerHTML = "Scratch Cards!";
 });
