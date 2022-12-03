@@ -33,7 +33,7 @@ body {
     background: rgb(47,47,47);
     width: 100vw;
     min-height: 100vh;
-    background: url("png/background_resized.jpg");
+    background: url("png/background_resized.webp");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -398,7 +398,7 @@ floating animation
     margin: 0 0 1.5vh 0;
 }
 
-.form-input-div p {
+.form-input-div label {
     font-size: 1.2rem;
     margin: 0 0 .2vh 0;
 }

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="portfolio">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="png/favicon.png" type="image/x-icon">
     <script src="script.js" defer></script>
@@ -46,7 +47,7 @@
                     <p class="about-text">One of my strong sides is creativity.</p>
                     <p class="about-text">I'm interested in astronomy and all kinds of activities that base around competition, from F1 to chess.</p>
                 </section>
-                <div class="contact-btn"><a class="contact-btn-content">Contact</a></div>
+                <div class="contact-btn"><span class="contact-btn-content">Contact</span></div>
             </section>
             <section class="about-right">
                 <section class="form-container">
@@ -57,15 +58,15 @@
                         <input type="hidden" name="_next" value="http://127.0.0.1:5500/bigger-projects/portfolio/index.html#">
                         <input type="hidden" name="_captcha" value="false">
                         <div class="form-input-div">
-                            <p>Name</p>
-                            <input type="text" name="name" required class="contact-input">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" required class="contact-input" id="name">
                         </div>
                         <div class="form-input-div">
-                            <p>E-mail</p>
-                            <input type="email" name="email" required class="contact-input">
+                            <label for="email">E-mail</label>
+                            <input type="email" name="email" required class="contact-input" id="email">
                         </div>
                         <div class="form-input-div">
-                            <p>Message</p>
+                            <label for="message">Message</label>
                             <textarea
                                 class="contact-input"
                                 name="message"
@@ -73,6 +74,7 @@
                                 required 
                                 form="contact"
                                 spellcheck="false"
+                                id="message"
                             ></textarea>
                         </div>
                         <section class="thank-you-section">
@@ -115,15 +117,15 @@
                 <section class="projects">
                     <div class="project-container">
                         <p class="project-title">Project Title</p>
-                        <img src="png/github.png" alt="picture of project">
+                        
                     </div>
                     <div class="project-container">
                         <p class="project-title">Project Title</p>
-                        <img src="png/github.png" alt="picture of project">
+                        
                     </div>
                     <div class="project-container">
                         <p class="project-title">Project Title</p>
-                        <img src="png/github.png" alt="picture of project">
+                        
                     </div>
                 </section>
             </section>
@@ -189,7 +191,7 @@
             </section>
         </section>
         <aside>
-            <img src="png/aside.png" alt="" class="aside-img">
+            <img src="png/aside.webp" alt="" class="aside-img">
         </aside>
     </main>
 </body>
