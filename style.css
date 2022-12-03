@@ -628,10 +628,15 @@ GAME
     align-items: center;
     justify-content: space-evenly;
     cursor: pointer;
+    display: none;
 }
 
 .reset-game-button:hover {
     background-color: rgba(0,0,0, 0.4);
+}
+
+.reset-game-button.active {
+    display:flex;
 }
 
 .reset-game-button p{
