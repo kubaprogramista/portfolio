@@ -27,51 +27,16 @@ let dynamicPlanetCounter = {
     "moon": 0,
 }
 
-function randomPrizes() {
-    canvasArray.forEach(canvas => {
-        let random = Math.floor(Math.random() * (planetsArray.length));
-        canvas.style.backgroundImage = planetsArray[random];
-
-        switch (random) {
-            case 0:
-                dynamicPlanetCounter.uranus++;
-                break;
-            case 1:
-                dynamicPlanetCounter.neptune++;
-                break;
-            case 2:
-                dynamicPlanetCounter.saturn++;
-                break;
-            case 3:
-                dynamicPlanetCounter.venus++;
-                break;
-            case 4:
-                dynamicPlanetCounter.jupiter++;
-                break;
-            case 5:
-                dynamicPlanetCounter.mars++;
-                break;
-            case 6:
-                dynamicPlanetCounter.earth++;
-                break;
-            case 7:
-                dynamicPlanetCounter.moon++;
-                break;
-        }
-    });
-}
-window.onload = randomPrizes();
-
-function dataReset() {
-    dynamicPlanetCounter.uranus = 0;
-    dynamicPlanetCounter.neptune = 0;
-    dynamicPlanetCounter.saturn = 0;
-    dynamicPlanetCounter.venus = 0;
-    dynamicPlanetCounter.jupiter = 0;
-    dynamicPlanetCounter.mars = 0;
-    dynamicPlanetCounter.earth = 0;
-    dynamicPlanetCounter.moon = 0;
-}
+const prizeSystem = [
+    22,
+    18,
+    14,
+    10,
+    8,
+    6,
+    4,
+    2,
+]
 
 let checkIfScratched = false;
 let gameCount = 1;
@@ -100,16 +65,25 @@ window.onload = newGame();
 let gameWonCount = 0;
 gamesWon.innerHTML = `${gameWonCount}`;
 
+let gamePrice = 100;
+let reward = 0;
+
 function ifGameOver() {
+    let i = 0;
     let gameResult = false;
-    for(const numberOfPlanets in dynamicPlanetCounter){
+    for(const [key, value] of Object.entries(dynamicPlanetCounter)){
         //specify number of planets to win a game
-        if(dynamicPlanetCounter[numberOfPlanets] >= 3) {
+        if(value >= 3) {
             //game won
+            console.log(`${key}: ${value}`);
+            console.log(i);
+            console.log(gamePrice * prizeSystem[i]);
+            reward = gamePrice * prizeSystem[i]
             gameResult = true;
         } else {
             //game lost
         }
+        i++;
     }
     if(gameResult === true){
         title.innerHTML = "You Won!";
@@ -161,6 +135,52 @@ function canvasHandler() {
 }
 window.onload = canvasHandler();
 
+function randomPlanetsHandler() {
+    canvasArray.forEach(canvas => {
+        let random = Math.floor(Math.random() * (planetsArray.length));
+        canvas.style.backgroundImage = planetsArray[random];
+
+        switch (random) {
+            case 0:
+                dynamicPlanetCounter.uranus++;
+                break;
+            case 1:
+                dynamicPlanetCounter.neptune++;
+                break;
+            case 2:
+                dynamicPlanetCounter.saturn++;
+                break;
+            case 3:
+                dynamicPlanetCounter.venus++;
+                break;
+            case 4:
+                dynamicPlanetCounter.jupiter++;
+                break;
+            case 5:
+                dynamicPlanetCounter.mars++;
+                break;
+            case 6:
+                dynamicPlanetCounter.earth++;
+                break;
+            case 7:
+                dynamicPlanetCounter.moon++;
+                break;
+        }
+    });
+}
+window.onload = randomPlanetsHandler();
+
+function dataReset() {
+    dynamicPlanetCounter.uranus = 0;
+    dynamicPlanetCounter.neptune = 0;
+    dynamicPlanetCounter.saturn = 0;
+    dynamicPlanetCounter.venus = 0;
+    dynamicPlanetCounter.jupiter = 0;
+    dynamicPlanetCounter.mars = 0;
+    dynamicPlanetCounter.earth = 0;
+    dynamicPlanetCounter.moon = 0;
+}
+
 /* 
 RESET GAME
 */
@@ -170,6 +190,6 @@ resetButton.addEventListener('click', () => {
     newGame();
 
     dataReset();
-    randomPrizes();
+    randomPlanetsHandler();
     title.innerHTML = "Scratch Cards!";
 });
