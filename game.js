@@ -68,7 +68,7 @@ gamesWon.innerHTML = `${gameWonCount}`;
 
 let gamePrice = 100;
 let reward = 0;
-let balance = 500;
+let balance = 100;
 balanceAmount.innerHTML = `${balance}`;
 
 function ifGameOver() {
