@@ -3,40 +3,40 @@ DESKTOP ICONS HANDLER
 */
 
 const allIconsHandler = (icons) => {
-    icons.forEach(icon => {
-        if(icon.style.filter == "opacity(0%)"){
-            icon.style.cursor = "pointer";
-            icon.style.filter = "opacity(100%)";
-            setTimeout(() => {
-                icon.style.transform = "scale(100%)";
-            }, 100);
-        } else {
-            icon.style.cursor = "default";
-            icon.style.filter = "opacity(0%)";
-            setTimeout(() => {
-                icon.style.transform = "scale(0%)";
-            }, 100);
-        }
-    });
-}
+  icons.forEach((icon) => {
+    if (icon.style.filter == "opacity(0%)") {
+      icon.style.cursor = "pointer";
+      icon.style.filter = "opacity(100%)";
+      setTimeout(() => {
+        icon.style.transform = "scale(100%)";
+      }, 100);
+    } else {
+      icon.style.cursor = "default";
+      icon.style.filter = "opacity(0%)";
+      setTimeout(() => {
+        icon.style.transform = "scale(0%)";
+      }, 100);
+    }
+  });
+};
 
 /*
 OPENING FILES / CLOSING FILES
 */
 
 const openFunction = (section, icon, closeBtn) => {
-    allIconsHandler(allIcons);
-    section.style.transform = "scale(100%)";
+  allIconsHandler(allIcons);
+  section.style.transform = "scale(100%)";
 
-    closeBtn.style.cursor = "pointer";
-}
+  closeBtn.style.cursor = "pointer";
+};
 
 const closeFunction = (section, icon, closeBtn) => {
-    allIconsHandler(allIcons);
-    section.style.transform = "scale(0%)";
+  allIconsHandler(allIcons);
+  section.style.transform = "scale(0%)";
 
-    closeBtn.style.cursor = "default";
-}
+  closeBtn.style.cursor = "default";
+};
 
 /*
 >>>>>>FUNCTION CALLS FOR ICONS / WINDOWS
@@ -51,13 +51,12 @@ const aboutSection = document.querySelector(".about-section");
 const closeAboutBtn = document.querySelector(".close-about-section");
 const aboutMeIcon = document.querySelector("#about-me-icon");
 
-aboutMeIcon.addEventListener('click', function () {
-    openFunction(aboutSection, aboutMeIcon, closeAboutBtn);
+aboutMeIcon.addEventListener("click", function () {
+  openFunction(aboutSection, aboutMeIcon, closeAboutBtn);
 });
 
-
-closeAboutBtn.addEventListener('click', function () {
-    closeFunction(aboutSection, aboutMeIcon, closeAboutBtn);
+closeAboutBtn.addEventListener("click", function () {
+  closeFunction(aboutSection, aboutMeIcon, closeAboutBtn);
 });
 
 /*
@@ -69,24 +68,24 @@ const closeImg = document.querySelector("#close-img");
 const imgIcon = document.querySelector(".image-icon-container");
 let isImgOpen = false;
 
-imgIcon.addEventListener('click', () => {
-    isImgOpen = true;
-    imgContainer.style.transform = "scale(100%)";
-    imgContainer.style.filter = "opacity(100%)";
-    imgIcon.style.filter = "opacity(0%)";
-    
-    imgIcon.style.cursor = "default";
-    closeImg.style.cursor = "pointer";
-})
+imgIcon.addEventListener("click", () => {
+  isImgOpen = true;
+  imgContainer.style.transform = "scale(100%)";
+  imgContainer.style.filter = "opacity(100%)";
+  imgIcon.style.filter = "opacity(0%)";
 
-closeImg.addEventListener('click', () => {
-    isImgOpen = false;
-    imgContainer.style.transform = "scale(0%)";
-    
-    imgIcon.style.filter = "opacity(100%)";
-    imgIcon.style.cursor = "pointer";
-    closeImg.style.cursor = "default";
-})
+  imgIcon.style.cursor = "default";
+  closeImg.style.cursor = "pointer";
+});
+
+closeImg.addEventListener("click", () => {
+  isImgOpen = false;
+  imgContainer.style.transform = "scale(0%)";
+
+  imgIcon.style.filter = "opacity(100%)";
+  imgIcon.style.cursor = "pointer";
+  closeImg.style.cursor = "default";
+});
 
 /*
 CONTACT FORM CALL
@@ -94,34 +93,34 @@ CONTACT FORM CALL
 
 const contactSection = document.querySelector(".form-container");
 const contactBtn = document.querySelector(".contact-btn");
-const closeContact = document.querySelector("#close-contact-form"); 
+const closeContact = document.querySelector("#close-contact-form");
 const thankYouText = document.querySelector(".thank-you-text");
 
-contactBtn.addEventListener('click', () => {
-    contactSection.style.transform = "scale(100%)";
-    contactSection.style.filter = "opacity(100%)";
-    imgIcon.style.filter = "opacity(0%)";
+contactBtn.addEventListener("click", () => {
+  contactSection.style.transform = "scale(100%)";
+  contactSection.style.filter = "opacity(100%)";
+  imgIcon.style.filter = "opacity(0%)";
+  imgIcon.style.transform = "scale(0%)";
+
+  closeContact.style.cursor = "pointer";
+
+  if (isImgOpen == true) {
+    imgContainer.style.transform = "scale(0%)";
     imgIcon.style.transform = "scale(0%)";
 
-    closeContact.style.cursor = "pointer";
-
-    if(isImgOpen == true) {
-        imgContainer.style.transform = "scale(0%)";
-        imgIcon.style.transform = "scale(0%)";
-        
-        imgIcon.style.filter = "opacity(100%)";
-        imgIcon.style.cursor = "pointer";
-        isImgOpen = false;
-    }
-})
-
-closeContact.addEventListener('click', () => {
-    contactSection.style.transform = "scale(0%)";
     imgIcon.style.filter = "opacity(100%)";
-    imgIcon.style.transform = "scale(100%)";
+    imgIcon.style.cursor = "pointer";
+    isImgOpen = false;
+  }
+});
 
-    closeContact.style.cursor = "default";
-})
+closeContact.addEventListener("click", () => {
+  contactSection.style.transform = "scale(0%)";
+  imgIcon.style.filter = "opacity(100%)";
+  imgIcon.style.transform = "scale(100%)";
+
+  closeContact.style.cursor = "default";
+});
 
 /*
 THANK YOU NOTIFICATION
@@ -130,47 +129,44 @@ THANK YOU NOTIFICATION
 const sendBtn = document.querySelector(".send-btn");
 const contactInputs = document.querySelectorAll(".contact-input");
 
-sendBtn.addEventListener('click', () => {
-    let x = 0;
-    contactInputs.forEach(input => {
-        if(input.value === ""){
-            
-        } else {
-            x++;
-        }
-    });
-    if(x === 3){
-        thankYouText.style.transform = "scale(100%)";
-        thankYouText.style.filter = "opacity(100%)";
+sendBtn.addEventListener("click", () => {
+  let x = 0;
+  contactInputs.forEach((input) => {
+    if (input.value === "") {
+    } else {
+      x++;
     }
-})
+  });
+  if (x === 3) {
+    thankYouText.style.transform = "scale(100%)";
+    thankYouText.style.filter = "opacity(100%)";
+  }
+});
 
 /*
 PROJECTS CALL
 */
 
-const projectsSection = document.querySelector('.projects-section');
-const closeProjects = document.querySelector('.close-projects-section');
-const projectsIcon = document.querySelector('#projects-icon');
+const projectsSection = document.querySelector(".projects-section");
+const closeProjects = document.querySelector(".close-projects-section");
+const projectsIcon = document.querySelector("#projects-icon");
 
-projectsIcon.addEventListener('click', function () {
-    openFunction(projectsSection, projectsIcon, closeProjects);
+projectsIcon.addEventListener("click", function () {
+  openFunction(projectsSection, projectsIcon, closeProjects);
 });
 
-
-closeProjects.addEventListener('click', function () {
-    closeFunction(projectsSection, projectsIcon, closeProjects);
+closeProjects.addEventListener("click", function () {
+  closeFunction(projectsSection, projectsIcon, closeProjects);
 });
 
 const gameSection = document.querySelector(".game-section");
 const closeGameBtn = document.querySelector(".close-game-section");
 const gameIcon = document.querySelector("#game-icon");
 
-gameIcon.addEventListener('click', function () {
-    openFunction(gameSection, gameIcon, closeGameBtn);
+gameIcon.addEventListener("click", function () {
+  openFunction(gameSection, gameIcon, closeGameBtn);
 });
 
-
-closeGameBtn.addEventListener('click', function () {
-    closeFunction(gameSection, gameIcon, closeGameBtn);
+closeGameBtn.addEventListener("click", function () {
+  closeFunction(gameSection, gameIcon, closeGameBtn);
 });
