@@ -1,198 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="portfolio">
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="png/favicon.png" type="image/x-icon">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="portfolio" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="png/favicon.png" type="image/x-icon" />
     <script src="script.js" defer></script>
     <script src="game.js" defer></script>
     <title>Portfolio</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <h1 class="header-title">Portfolio</h1>
+      <h1 class="header-title">Portfolio</h1>
     </header>
     <main>
-        <!-- DESKTOP -->
-        <section class="desktop-files">
-            <div class="desktop-file-container" id="about-me-icon">
-                <img src="png/file-icon.png" alt="">
-                <p class="file-name">about me.html</p> 
-            </div>
-            <div class="desktop-file-container" id="projects-icon">
-                <img src="png/file-icon.png" alt="">
-                <p class="file-name">projects.html</p> 
-            </div>
-            <div class="desktop-file-container" id="game-icon">
-                <img src="png/game-console.png" alt="game icon">
-                <p class="file-name">game.exe</p> 
-            </div>
+      <!-- DESKTOP -->
+      <section class="desktop-files">
+        <div class="desktop-file-container" id="about-me-icon">
+          <img src="png/file-icon.png" alt="" />
+          <p class="file-name">about me.html</p>
+        </div>
+        <div class="desktop-file-container" id="projects-icon">
+          <img src="png/file-icon.png" alt="" />
+          <p class="file-name">projects.html</p>
+        </div>
+        <div class="desktop-file-container" id="game-icon">
+          <img src="png/game-console.png" alt="game icon" />
+          <p class="file-name">game.exe</p>
+        </div>
+      </section>
+      <!-- ABOUT ME -->
+      <section class="about-section">
+        <div class="header-bar">
+          <div class="header-bar-btn close-about-section"></div>
+          <div class="header-bar-btn"></div>
+          <div class="header-bar-btn"></div>
+        </div>
+        <section class="about-left">
+          <h2 class="about-heading">About me</h2>
+          <section class="about-text-section">
+            <p class="about-text">
+              Hello, my name is Jakub, I'm 20 years old and I am an IT
+              Specialist.
+            </p>
+            <p class="about-text">
+              I'm learning how to code since 2019, but started taking it more
+              serious since summer 2022.
+            </p>
+            <p class="about-text">
+              My goal is to make user friendly sites that are easy to look at
+              and fully responsive.
+            </p>
+            <p class="about-text">One of my strong sides is creativity.</p>
+            <p class="about-text">
+              I'm interested in astronomy and all kinds of activities that base
+              around competition, from F1 to chess.
+            </p>
+          </section>
+          <div class="contact-btn">
+            <span class="contact-btn-content">Contact</span>
+          </div>
         </section>
-        <!-- ABOUT ME -->
-        <section class="about-section">
-            <div class="header-bar">
-                <div class="header-bar-btn close-about-section"></div>
-                <div class="header-bar-btn"></div>
-                <div class="header-bar-btn"></div>
+        <section class="about-right">
+          <section class="form-container">
+            <div class="form-bar">
+              <div class="form-bar-btn" id="close-contact-form"></div>
             </div>
-            <section class="about-left">
-                <h2 class="about-heading">About me</h2>
-                <section class="about-text-section">
-                    <p class="about-text">Hello, my name is Jakub, I'm 20 years old and I am an IT Specialist.</p>
-                    <p class="about-text">I'm learning how to code since 2019, but started taking it more serious since summer 2022.</p>
-                    <p class="about-text">My goal is to make user friendly sites that are easy to look at and fully responsive.</p>
-                    <p class="about-text">One of my strong sides is creativity.</p>
-                    <p class="about-text">I'm interested in astronomy and all kinds of activities that base around competition, from F1 to chess.</p>
-                </section>
-                <div class="contact-btn"><span class="contact-btn-content">Contact</span></div>
+            <form
+              class="contact-form"
+              id="contact"
+              action="https://formsubmit.co/jakubcoding@gmail.com"
+              method="POST"
+            >
+              <input
+                type="hidden"
+                name="_next"
+                value="http://127.0.0.1:5500/bigger-projects/portfolio/index.html#"
+              />
+              <input type="hidden" name="_captcha" value="false" />
+              <div class="form-input-div">
+                <label for="name">Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  class="contact-input"
+                  id="name"
+                />
+              </div>
+              <div class="form-input-div">
+                <label for="email">E-mail</label>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  class="contact-input"
+                  id="email"
+                />
+              </div>
+              <div class="form-input-div">
+                <label for="message">Message</label>
+                <textarea
+                  class="contact-input"
+                  name="message"
+                  wrap="hard"
+                  required
+                  form="contact"
+                  spellcheck="false"
+                  id="message"
+                ></textarea>
+              </div>
+              <section class="thank-you-section">
+                <button type="submit" class="send-btn">Send!</button>
+                <p class="thank-you-text">Thank You!</p>
+              </section>
+            </form>
+            <section class="contact-links">
+              <a
+                href="https://www.linkedin.com/in/jakub-figura-77868a256"
+                target="_blank"
+              >
+                <img src="png/linkedin.png" alt="Linked In" />
+                <p>LinkedIn</p>
+              </a>
+              <a href="https://github.com/jacob-strauss" target="_blank">
+                <img src="png/github.png" alt="Linked In" />
+                <p>GitHub</p>
+              </a>
             </section>
-            <section class="about-right">
-                <section class="form-container">
-                    <div class="form-bar">
-                        <div class="form-bar-btn" id="close-contact-form"></div>
-                    </div>
-                    <form class="contact-form" id="contact" action="https://formsubmit.co/jakubcoding@gmail.com" method="POST">
-                        <input type="hidden" name="_next" value="http://127.0.0.1:5500/bigger-projects/portfolio/index.html#">
-                        <input type="hidden" name="_captcha" value="false">
-                        <div class="form-input-div">
-                            <label for="name">Name</label>
-                            <input type="text" name="name" required class="contact-input" id="name">
-                        </div>
-                        <div class="form-input-div">
-                            <label for="email">E-mail</label>
-                            <input type="email" name="email" required class="contact-input" id="email">
-                        </div>
-                        <div class="form-input-div">
-                            <label for="message">Message</label>
-                            <textarea
-                                class="contact-input"
-                                name="message"
-                                wrap="hard" 
-                                required 
-                                form="contact"
-                                spellcheck="false"
-                                id="message"
-                            ></textarea>
-                        </div>
-                        <section class="thank-you-section">
-                            <button type="submit" class="send-btn">Send!</button>
-                            <p class="thank-you-text">Thank You!</p>
-                        </section>
-                    </form>
-                    <section class="contact-links">
-                        <a href="https://www.linkedin.com/in/jakub-figura-77868a256" target="_blank">
-                            <img src="png/linkedin.png" alt="Linked In">
-                            <p>LinkedIn</p>
-                        </a>
-                        <a href="https://github.com/jacob-strauss" target="_blank">
-                            <img src="png/github.png" alt="Linked In">
-                            <p>GitHub</p>
-                        </a>
-                    </section>
-                </section>
-                <div class="image-icon-container">
-                    <img src="png/image-icon.png" alt="">
-                    <p class="image-icon-name">photo.jpg</p>
-                </div>
-                <div class="image-container">
-                    <div class="image-bar">
-                        <div class="image-bar-btn" id="close-img"></div>
-                    </div>
-                    <img src="png/astronaut.png" alt="image of floating astronaut">
-                </div>
-            </section>
-        </section>
-        <!-- PROJECTS -->
-        <section class="projects-section">
-            <div class="header-bar">
-                <div class="header-bar-btn close-projects-section"></div>
-                <div class="header-bar-btn"></div>
-                <div class="header-bar-btn"></div>
+          </section>
+          <div class="image-icon-container">
+            <img src="png/image-icon.png" alt="" />
+            <p class="image-icon-name">photo.jpg</p>
+          </div>
+          <div class="image-container">
+            <div class="image-bar">
+              <div class="image-bar-btn" id="close-img"></div>
             </div>
-            <section class="projects-content">
-                <p class="projects-info">My projects</p>
-                <section class="projects">
-                    <div class="project-container">
-                        <p class="project-title">Project Title</p>
-                        
-                    </div>
-                    <div class="project-container">
-                        <p class="project-title">Project Title</p>
-                        
-                    </div>
-                    <div class="project-container">
-                        <p class="project-title">Project Title</p>
-                        
-                    </div>
-                </section>
-            </section>
+            <img src="png/astronaut.png" alt="image of floating astronaut" />
+          </div>
         </section>
-        <section class="game-section">
-            <p class="mobile-notification">To play our game, download from our site!</p>
-            <div class="header-bar">
-                <div class="header-bar-btn close-game-section"></div>
-                <div class="header-bar-btn"></div>
-                <div class="header-bar-btn"></div>
+      </section>
+      <!-- PROJECTS -->
+      <section class="projects-section">
+        <div class="header-bar">
+          <div class="header-bar-btn close-projects-section"></div>
+          <div class="header-bar-btn"></div>
+          <div class="header-bar-btn"></div>
+        </div>
+        <section class="projects-content">
+          <p class="projects-info">My projects</p>
+          <section class="projects">
+            <div class="project-container">
+              <p class="project-title">Project Title</p>
             </div>
-            <section class="game-content">
-                <section class="game-statistics">
-                    <p>Balance:<br><span class="balance"></span>$</p>
-                    <p>Games played:<br><span class="games-played"></span></p>
-                    <p>Games won:<br><span class="games-won"></span></p>
-                </section>
-                <section class="game-window">
-                    <button class="reset-game-button">
-                        <p>One more! </p><span class="reset-icon">&#x21bb;</span>
-                    </button>
-                    <section class="game-window-header">
-                        <p class="game-title">Scratch Cards!</p>
-                    </section>
-                    <hr>
-                    <div class="game-grid">
-                        <canvas class="scratch-box"></canvas>
-                        <canvas class="scratch-box"></canvas>
-                        <canvas class="scratch-box"></canvas>
-                        <canvas class="scratch-box"></canvas>
-                        <canvas class="scratch-box"></canvas>
-                        <canvas class="scratch-box"></canvas>
-                        <canvas class="scratch-box"></canvas>
-                        <canvas class="scratch-box"></canvas>
-                        <canvas class="scratch-box"></canvas>
-                    </div>
-                </section>
-                <section class="game-legend">
-                    <p>Legend</p>
-                    <div class="legend-images">
-                        <span class="legend-item any-planet"></span>
-                        <span class="legend-item uranus"></span>
-                        <span class="legend-item neptune"></span>
-                        <span class="legend-item saturn"></span>
-                        <span class="legend-item venus"></span>
-                        <span class="legend-item jupiter"></span>
-                        <span class="legend-item mars"></span>
-                        <span class="legend-item earth"></span>
-                        <span class="legend-item moon"></span>
-                    </div>
-                    <div class="legend-numbers">
-                        <span class="any-planet"> = x?</span>
-                        <span class="uranus"> = x22</span>
-                        <span class="neptune"> = x18</span>
-                        <span class="saturn"> = x14</span>
-                        <span class="venus"> = x10</span>
-                        <span class="jupiter"> = x8</span>
-                        <span class="mars"> = x6</span>
-                        <span class="earth"> = x4</span>
-                        <span class="moon"> = x2</span>
-                    </div>
-                </section>
-            </section>
+            <div class="project-container">
+              <p class="project-title">Project Title</p>
+            </div>
+            <div class="project-container">
+              <p class="project-title">Project Title</p>
+            </div>
+          </section>
         </section>
-        <aside>
-            <img src="png/aside.webp" alt="" class="aside-img">
-        </aside>
+      </section>
+      <section class="game-section">
+        <p class="mobile-notification">
+          To play our game, download from our site!
+        </p>
+        <div class="header-bar">
+          <div class="header-bar-btn close-game-section"></div>
+          <div class="header-bar-btn"></div>
+          <div class="header-bar-btn"></div>
+        </div>
+        <section class="game-content">
+          <section class="game-statistics">
+            <p>Balance:<br /><span class="balance"></span>$</p>
+            <p>Games played:<br /><span class="games-played"></span></p>
+            <p>Games won:<br /><span class="games-won"></span></p>
+          </section>
+          <section class="game-window">
+            <button class="reset-game-button">
+              <p>One more!</p>
+              <span class="reset-icon">&#x21bb;</span>
+            </button>
+            <section class="game-window-header">
+              <p class="game-title">Scratch Cards!</p>
+            </section>
+            <hr />
+            <div class="game-grid">
+              <canvas class="scratch-box"></canvas>
+              <canvas class="scratch-box"></canvas>
+              <canvas class="scratch-box"></canvas>
+              <canvas class="scratch-box"></canvas>
+              <canvas class="scratch-box"></canvas>
+              <canvas class="scratch-box"></canvas>
+              <canvas class="scratch-box"></canvas>
+              <canvas class="scratch-box"></canvas>
+              <canvas class="scratch-box"></canvas>
+            </div>
+          </section>
+          <section class="game-legend">
+            <p>Legend</p>
+            <div class="legend-images">
+              <span class="legend-item any-planet"></span>
+              <span class="legend-item uranus"></span>
+              <span class="legend-item neptune"></span>
+              <span class="legend-item saturn"></span>
+              <span class="legend-item venus"></span>
+              <span class="legend-item jupiter"></span>
+              <span class="legend-item mars"></span>
+              <span class="legend-item earth"></span>
+              <span class="legend-item moon"></span>
+            </div>
+            <div class="legend-numbers">
+              <span class="any-planet"> = x?</span>
+              <span class="uranus"> = x22</span>
+              <span class="neptune"> = x18</span>
+              <span class="saturn"> = x14</span>
+              <span class="venus"> = x10</span>
+              <span class="jupiter"> = x8</span>
+              <span class="mars"> = x6</span>
+              <span class="earth"> = x4</span>
+              <span class="moon"> = x2</span>
+            </div>
+          </section>
+        </section>
+      </section>
+      <img src="png/aside.webp" alt="" class="aside-img" />
     </main>
-</body>
+  </body>
 </html>
