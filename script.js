@@ -1,20 +1,42 @@
+/* eslint-disable linebreak-style */
+const allIcons = document.querySelectorAll('.desktop-file-container');
+const aboutSection = document.querySelector('.about-section');
+const closeAboutBtn = document.querySelector('.close-about-section');
+const aboutMeIcon = document.querySelector('#about-me-icon');
+const imgContainer = document.querySelector('.image-container');
+const closeImg = document.querySelector('#close-img');
+const imgIcon = document.querySelector('.image-icon-container');
+const contactSection = document.querySelector('.form-container');
+const contactBtn = document.querySelector('.contact-btn');
+const closeContact = document.querySelector('#close-contact-form');
+const thankYouText = document.querySelector('.thank-you-text');
+const sendBtn = document.querySelector('.send-btn');
+const contactInputs = document.querySelectorAll('.contact-input');
+const projectsSection = document.querySelector('.projects-section');
+const closeProjects = document.querySelector('.close-projects-section');
+const projectsIcon = document.querySelector('#projects-icon');
+const gameSection = document.querySelector('.game-section');
+const closeGameBtn = document.querySelector('.close-game-section');
+const gameIcon = document.querySelector('#game-icon');
+
 /*
 DESKTOP ICONS HANDLER
 */
 
 const allIconsHandler = (icons) => {
   icons.forEach((icon) => {
-    if (icon.style.filter == "opacity(0%)") {
-      icon.style.cursor = "pointer";
-      icon.style.filter = "opacity(100%)";
+    const iconCopy = icon;
+    if (iconCopy.style.filter === 'opacity(0%)') {
+      iconCopy.style.cursor = 'pointer';
+      iconCopy.style.filter = 'opacity(100%)';
       setTimeout(() => {
-        icon.style.transform = "scale(100%)";
+        iconCopy.style.transform = 'scale(100%)';
       }, 100);
     } else {
-      icon.style.cursor = "default";
-      icon.style.filter = "opacity(0%)";
+      iconCopy.style.cursor = 'default';
+      iconCopy.style.filter = 'opacity(0%)';
       setTimeout(() => {
-        icon.style.transform = "scale(0%)";
+        iconCopy.style.transform = 'scale(0%)';
       }, 100);
     }
   });
@@ -25,17 +47,21 @@ OPENING FILES / CLOSING FILES
 */
 
 const openFunction = (section, icon, closeBtn) => {
+  const sectionCopy = section;
+  const closeBtnCopy = closeBtn;
   allIconsHandler(allIcons);
-  section.style.transform = "scale(100%)";
+  sectionCopy.style.transform = 'scale(100%)';
 
-  closeBtn.style.cursor = "pointer";
+  closeBtnCopy.style.cursor = 'pointer';
 };
 
 const closeFunction = (section, icon, closeBtn) => {
+  const sectionCopy = section;
+  const closeBtnCopy = closeBtn;
   allIconsHandler(allIcons);
-  section.style.transform = "scale(0%)";
+  sectionCopy.style.transform = 'scale(0%)';
 
-  closeBtn.style.cursor = "default";
+  closeBtnCopy.style.cursor = 'default';
 };
 
 /*
@@ -46,16 +72,11 @@ const closeFunction = (section, icon, closeBtn) => {
 ABOUT ME CALL
 */
 
-const allIcons = document.querySelectorAll(".desktop-file-container");
-const aboutSection = document.querySelector(".about-section");
-const closeAboutBtn = document.querySelector(".close-about-section");
-const aboutMeIcon = document.querySelector("#about-me-icon");
-
-aboutMeIcon.addEventListener("click", function () {
+aboutMeIcon.addEventListener('click', () => {
   openFunction(aboutSection, aboutMeIcon, closeAboutBtn);
 });
 
-closeAboutBtn.addEventListener("click", function () {
+closeAboutBtn.addEventListener('click', () => {
   closeFunction(aboutSection, aboutMeIcon, closeAboutBtn);
 });
 
@@ -63,83 +84,71 @@ closeAboutBtn.addEventListener("click", function () {
 ABOUT ME IMG
 */
 
-const imgContainer = document.querySelector(".image-container");
-const closeImg = document.querySelector("#close-img");
-const imgIcon = document.querySelector(".image-icon-container");
 let isImgOpen = false;
 
-imgIcon.addEventListener("click", () => {
+imgIcon.addEventListener('click', () => {
   isImgOpen = true;
-  imgContainer.style.transform = "scale(100%)";
-  imgContainer.style.filter = "opacity(100%)";
-  imgIcon.style.filter = "opacity(0%)";
+  imgContainer.style.transform = 'scale(100%)';
+  imgContainer.style.filter = 'opacity(100%)';
+  imgIcon.style.filter = 'opacity(0%)';
 
-  imgIcon.style.cursor = "default";
-  closeImg.style.cursor = "pointer";
+  imgIcon.style.cursor = 'default';
+  closeImg.style.cursor = 'pointer';
 });
 
-closeImg.addEventListener("click", () => {
+closeImg.addEventListener('click', () => {
   isImgOpen = false;
-  imgContainer.style.transform = "scale(0%)";
+  imgContainer.style.transform = 'scale(0%)';
 
-  imgIcon.style.filter = "opacity(100%)";
-  imgIcon.style.cursor = "pointer";
-  closeImg.style.cursor = "default";
+  imgIcon.style.filter = 'opacity(100%)';
+  imgIcon.style.cursor = 'pointer';
+  closeImg.style.cursor = 'default';
 });
 
 /*
 CONTACT FORM CALL
 */
 
-const contactSection = document.querySelector(".form-container");
-const contactBtn = document.querySelector(".contact-btn");
-const closeContact = document.querySelector("#close-contact-form");
-const thankYouText = document.querySelector(".thank-you-text");
+contactBtn.addEventListener('click', () => {
+  contactSection.style.transform = 'scale(100%)';
+  contactSection.style.filter = 'opacity(100%)';
+  imgIcon.style.filter = 'opacity(0%)';
+  imgIcon.style.transform = 'scale(0%)';
 
-contactBtn.addEventListener("click", () => {
-  contactSection.style.transform = "scale(100%)";
-  contactSection.style.filter = "opacity(100%)";
-  imgIcon.style.filter = "opacity(0%)";
-  imgIcon.style.transform = "scale(0%)";
+  closeContact.style.cursor = 'pointer';
 
-  closeContact.style.cursor = "pointer";
+  if (isImgOpen === true) {
+    imgContainer.style.transform = 'scale(0%)';
+    imgIcon.style.transform = 'scale(0%)';
 
-  if (isImgOpen == true) {
-    imgContainer.style.transform = "scale(0%)";
-    imgIcon.style.transform = "scale(0%)";
-
-    imgIcon.style.filter = "opacity(100%)";
-    imgIcon.style.cursor = "pointer";
+    imgIcon.style.filter = 'opacity(100%)';
+    imgIcon.style.cursor = 'pointer';
     isImgOpen = false;
   }
 });
 
-closeContact.addEventListener("click", () => {
-  contactSection.style.transform = "scale(0%)";
-  imgIcon.style.filter = "opacity(100%)";
-  imgIcon.style.transform = "scale(100%)";
+closeContact.addEventListener('click', () => {
+  contactSection.style.transform = 'scale(0%)';
+  imgIcon.style.filter = 'opacity(100%)';
+  imgIcon.style.transform = 'scale(100%)';
 
-  closeContact.style.cursor = "default";
+  closeContact.style.cursor = 'default';
 });
 
 /*
 THANK YOU NOTIFICATION
 */
 
-const sendBtn = document.querySelector(".send-btn");
-const contactInputs = document.querySelectorAll(".contact-input");
-
-sendBtn.addEventListener("click", () => {
+sendBtn.addEventListener('click', () => {
   let x = 0;
   contactInputs.forEach((input) => {
-    if (input.value === "") {
-    } else {
-      x++;
+    if (input.value !== '') {
+      x += 1;
     }
   });
   if (x === 3) {
-    thankYouText.style.transform = "scale(100%)";
-    thankYouText.style.filter = "opacity(100%)";
+    thankYouText.style.transform = 'scale(100%)';
+    thankYouText.style.filter = 'opacity(100%)';
   }
 });
 
@@ -147,26 +156,18 @@ sendBtn.addEventListener("click", () => {
 PROJECTS CALL
 */
 
-const projectsSection = document.querySelector(".projects-section");
-const closeProjects = document.querySelector(".close-projects-section");
-const projectsIcon = document.querySelector("#projects-icon");
-
-projectsIcon.addEventListener("click", function () {
+projectsIcon.addEventListener('click', () => {
   openFunction(projectsSection, projectsIcon, closeProjects);
 });
 
-closeProjects.addEventListener("click", function () {
+closeProjects.addEventListener('click', () => {
   closeFunction(projectsSection, projectsIcon, closeProjects);
 });
 
-const gameSection = document.querySelector(".game-section");
-const closeGameBtn = document.querySelector(".close-game-section");
-const gameIcon = document.querySelector("#game-icon");
-
-gameIcon.addEventListener("click", function () {
+gameIcon.addEventListener('click', () => {
   openFunction(gameSection, gameIcon, closeGameBtn);
 });
 
-closeGameBtn.addEventListener("click", function () {
+closeGameBtn.addEventListener('click', () => {
   closeFunction(gameSection, gameIcon, closeGameBtn);
 });

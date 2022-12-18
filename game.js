@@ -1,10 +1,18 @@
-const canvasArray = document.querySelectorAll(".scratch-box");
-const canvasOverlay = "png/game_png/overlay.png";
-const resetButton = document.querySelector(".reset-game-button");
-const gamesPlayed = document.querySelector(".games-played");
-const title = document.querySelector(".game-title");
-const gamesWon = document.querySelector(".games-won");
-const balanceAmount = document.querySelector(".balance");
+/* eslint-disable linebreak-style */
+/* eslint-disable comma-dangle */
+/* eslint-disable operator-linebreak */
+/* eslint-disable no-shadow */
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-undef */
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable no-use-before-define */
+const canvasArray = document.querySelectorAll('.scratch-box');
+const canvasOverlay = 'png/game_png/overlay.png';
+const resetButton = document.querySelector('.reset-game-button');
+const gamesPlayed = document.querySelector('.games-played');
+const title = document.querySelector('.game-title');
+const gamesWon = document.querySelector('.games-won');
+const balanceAmount = document.querySelector('.balance');
 
 const planetsArray = [
   "url('png/game_png/uranus.png')",
@@ -17,7 +25,7 @@ const planetsArray = [
   "url('png/game_png/moon.png')",
 ];
 
-let dynamicPlanetCounter = {
+const dynamicPlanetCounter = {
   uranus: 0,
   neptune: 0,
   saturn: 0,
@@ -36,14 +44,14 @@ let gameCount = 1;
 function newGame() {
   let countScratches = 0;
   gamesPlayed.innerHTML = `${gameCount}`;
-  gameCount++;
+  gameCount += 1;
   canvasArray.forEach((canvas) => {
     canvas.addEventListener(
-      "mouseover",
+      'mouseover',
       () => {
         checkIfScratched = true;
         if (checkIfScratched) {
-          countScratches++;
+          countScratches += 1;
         }
         if (countScratches === 9) {
           setTimeout(() => {
@@ -54,14 +62,14 @@ function newGame() {
       { once: true }
     );
   });
-  resetButton.classList.remove("active");
+  resetButton.classList.remove('active');
 }
 window.onload = newGame();
 
 let gameWonCount = 0;
 gamesWon.innerHTML = `${gameWonCount}`;
 
-let gamePrice = 100;
+const gamePrice = 100;
 let reward = 0;
 let balance = 100;
 balanceAmount.innerHTML = `${balance}`;
@@ -69,32 +77,32 @@ balanceAmount.innerHTML = `${balance}`;
 function ifGameOver() {
   let i = 0;
   let gameResult = false;
-  for (const [key, value] of Object.entries(dynamicPlanetCounter)) {
-    //specify number of planets to win a game
-    if (value == 3) {
-      //game won
+  for (const [, value] of Object.entries(dynamicPlanetCounter)) {
+    // specify number of planets to win a game
+    if (value === 3) {
+      // game won
       gameRewardHandler(prizeSystem[i], 1);
       gameResult = true;
-    } else if (value == 4) {
+    } else if (value === 4) {
       gameRewardHandler(prizeSystem[i], 2);
       gameResult = true;
-    } else if (value == 5) {
+    } else if (value === 5) {
       gameRewardHandler(prizeSystem[i], 4);
       gameResult = true;
-    } else if (value == 6) {
+    } else if (value === 6) {
       gameRewardHandler(prizeSystem[i], 10);
       gameResult = true;
     }
-    i++;
+    i += 1;
   }
   if (gameResult === true) {
-    title.innerHTML = "You Won!";
-    gameWonCount++;
+    title.innerHTML = 'You Won!';
+    gameWonCount += 1;
     gamesWon.innerHTML = `${gameWonCount}`;
   } else {
-    title.innerHTML = "You lost.";
+    title.innerHTML = 'You lost.';
   }
-  resetButton.classList.add("active");
+  resetButton.classList.add('active');
 }
 
 function gameRewardHandler(base, multiplier) {
@@ -106,12 +114,12 @@ function gameRewardHandler(base, multiplier) {
 
 function canvasHandler() {
   canvasArray.forEach((canvas) => {
-    let ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext('2d');
     canvas.width = 150;
     canvas.height = 150;
 
     function scratcher(canvas, overlay) {
-      canvas.mycanvas = canvas.getContext("2d");
+      canvas.mycanvas = canvas.getContext('2d');
       canvas.img = new Image();
       canvas.img.src = overlay;
       canvas.img.onload = function () {
@@ -120,7 +128,7 @@ function canvasHandler() {
     }
 
     function getBrushPosition(ctx, xReference, yReference) {
-      let rectangleInfo = ctx.canvas.getBoundingClientRect();
+      const rectangleInfo = ctx.canvas.getBoundingClientRect();
       return {
         x: Math.floor(
           ((xReference - rectangleInfo.left) /
@@ -136,17 +144,17 @@ function canvasHandler() {
     }
 
     function drawDot(ctx, mouseX, mouseY) {
-      let brushSize = 25;
+      const brushSize = 25;
       ctx.beginPath();
       ctx.arc(mouseX, mouseY, brushSize, 0, 2 * Math.PI);
-      ctx.globalCompositeOperation = "destination-out";
+      ctx.globalCompositeOperation = 'destination-out';
       ctx.fill();
     }
 
     canvas.addEventListener(
-      "mousemove",
+      'mousemove',
       (e) => {
-        let brushPosition = getBrushPosition(ctx, e.clientX, e.clientY);
+        const brushPosition = getBrushPosition(ctx, e.clientX, e.clientY);
         drawDot(ctx, brushPosition.x, brushPosition.y);
       },
       false
@@ -158,33 +166,35 @@ window.onload = canvasHandler();
 
 function randomPlanetsHandler() {
   canvasArray.forEach((canvas) => {
-    let random = Math.floor(Math.random() * planetsArray.length);
+    const random = Math.floor(Math.random() * planetsArray.length);
     canvas.style.backgroundImage = planetsArray[random];
 
     switch (random) {
       case 0:
-        dynamicPlanetCounter.uranus++;
+        dynamicPlanetCounter.uranus += 1;
         break;
       case 1:
-        dynamicPlanetCounter.neptune++;
+        dynamicPlanetCounter.neptune += 1;
         break;
       case 2:
-        dynamicPlanetCounter.saturn++;
+        dynamicPlanetCounter.saturn += 1;
         break;
       case 3:
-        dynamicPlanetCounter.venus++;
+        dynamicPlanetCounter.venus += 1;
         break;
       case 4:
-        dynamicPlanetCounter.jupiter++;
+        dynamicPlanetCounter.jupiter += 1;
         break;
       case 5:
-        dynamicPlanetCounter.mars++;
+        dynamicPlanetCounter.mars += 1;
         break;
       case 6:
-        dynamicPlanetCounter.earth++;
+        dynamicPlanetCounter.earth += 1;
         break;
       case 7:
-        dynamicPlanetCounter.moon++;
+        dynamicPlanetCounter.moon += 1;
+        break;
+      default:
         break;
     }
   });
@@ -202,11 +212,11 @@ function dataReset() {
   dynamicPlanetCounter.moon = 0;
 }
 
-/* 
+/*
 RESET GAME
 */
 
-resetButton.addEventListener("click", () => {
+resetButton.addEventListener('click', () => {
   canvasHandler();
   newGame();
 
@@ -214,5 +224,5 @@ resetButton.addEventListener("click", () => {
   randomPlanetsHandler();
   balance -= 100;
   balanceAmount.innerHTML = `${balance}`;
-  title.innerHTML = "Scratch Cards!";
+  title.innerHTML = 'Scratch Cards!';
 });
