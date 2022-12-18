@@ -1,10 +1,10 @@
-const canvasArray = document.querySelectorAll('.scratch-box');
-const canvasOverlay = 'png/game_png/overlay.png';
-const resetButton = document.querySelector('.reset-game-button');
-const gamesPlayed = document.querySelector('.games-played');
-const title = document.querySelector('.game-title');
-const gamesWon = document.querySelector('.games-won');
-const balanceAmount = document.querySelector('.balance');
+const canvasArray = document.querySelectorAll(".scratch-box");
+const canvasOverlay = "png/game_png/overlay.png";
+const resetButton = document.querySelector(".reset-game-button");
+const gamesPlayed = document.querySelector(".games-played");
+const title = document.querySelector(".game-title");
+const gamesWon = document.querySelector(".games-won");
+const balanceAmount = document.querySelector(".balance");
 
 const planetsArray = [
   "url('png/game_png/uranus.png')",
@@ -39,7 +39,7 @@ function newGame() {
   gameCount += 1;
   canvasArray.forEach((canvas) => {
     canvas.addEventListener(
-      'mouseover',
+      "mouseover",
       () => {
         checkIfScratched = true;
         if (checkIfScratched) {
@@ -54,7 +54,7 @@ function newGame() {
       { once: true }
     );
   });
-  resetButton.classList.remove('active');
+  resetButton.classList.remove("active");
 }
 window.onload = newGame();
 
@@ -86,13 +86,13 @@ function ifGameOver() {
     i += 1;
   }
   if (gameResult === true) {
-    title.innerHTML = 'You Won!';
+    title.innerHTML = "You Won!";
     gameWonCount += 1;
     gamesWon.innerHTML = `${gameWonCount}`;
   } else {
-    title.innerHTML = 'You lost.';
+    title.innerHTML = "You lost.";
   }
-  resetButton.classList.add('active');
+  resetButton.classList.add("active");
 }
 
 function gameRewardHandler(base, multiplier) {
@@ -103,12 +103,12 @@ function gameRewardHandler(base, multiplier) {
 
 function canvasHandler() {
   canvasArray.forEach((canvas) => {
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     canvas.width = 150;
     canvas.height = 150;
 
     function scratcher(canvas, overlay) {
-      canvas.mycanvas = canvas.getContext('2d');
+      canvas.mycanvas = canvas.getContext("2d");
       canvas.img = new Image();
       canvas.img.src = overlay;
       canvas.img.onload = function drawScratchers() {
@@ -136,12 +136,12 @@ function canvasHandler() {
       const brushSize = 25;
       ctx.beginPath();
       ctx.arc(mouseX, mouseY, brushSize, 0, 2 * Math.PI);
-      ctx.globalCompositeOperation = 'destination-out';
+      ctx.globalCompositeOperation = "destination-out";
       ctx.fill();
     }
 
     canvas.addEventListener(
-      'mousemove',
+      "mousemove",
       (e) => {
         const brushPosition = getBrushPosition(ctx, e.clientX, e.clientY);
         drawDot(ctx, brushPosition.x, brushPosition.y);
@@ -205,7 +205,7 @@ function dataReset() {
 RESET GAME
 */
 
-resetButton.addEventListener('click', () => {
+resetButton.addEventListener("click", () => {
   canvasHandler();
   newGame();
 
@@ -213,5 +213,5 @@ resetButton.addEventListener('click', () => {
   randomPlanetsHandler();
   balance -= 100;
   balanceAmount.innerHTML = `${balance}`;
-  title.innerHTML = 'Scratch Cards!';
+  title.innerHTML = "Scratch Cards!";
 });
