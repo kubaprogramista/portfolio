@@ -1,11 +1,5 @@
 /* eslint-disable linebreak-style */
-/* eslint-disable comma-dangle */
-/* eslint-disable operator-linebreak */
-/* eslint-disable no-shadow */
-/* eslint-disable no-param-reassign */
-/* eslint-disable no-undef */
-/* eslint-disable no-restricted-syntax */
-/* eslint-disable no-use-before-define */
+
 const canvasArray = document.querySelectorAll('.scratch-box');
 const canvasOverlay = 'png/game_png/overlay.png';
 const resetButton = document.querySelector('.reset-game-button');
@@ -78,20 +72,18 @@ function ifGameOver() {
   let i = 0;
   let gameResult = false;
   for (const [, value] of Object.entries(dynamicPlanetCounter)) {
-    // specify number of planets to win a game
     if (value === 3) {
-      // game won
+      gameResult = true;
       gameRewardHandler(prizeSystem[i], 1);
-      gameResult = true;
     } else if (value === 4) {
+      gameResult = true;
       gameRewardHandler(prizeSystem[i], 2);
-      gameResult = true;
     } else if (value === 5) {
+      gameResult = true;
       gameRewardHandler(prizeSystem[i], 4);
-      gameResult = true;
     } else if (value === 6) {
-      gameRewardHandler(prizeSystem[i], 10);
       gameResult = true;
+      gameRewardHandler(prizeSystem[i], 10);
     }
     i += 1;
   }
@@ -109,7 +101,6 @@ function gameRewardHandler(base, multiplier) {
   reward = gamePrice * base * multiplier;
   balance += reward;
   balanceAmount.innerHTML = `${balance}`;
-  gameResult = true;
 }
 
 function canvasHandler() {
@@ -122,7 +113,7 @@ function canvasHandler() {
       canvas.mycanvas = canvas.getContext('2d');
       canvas.img = new Image();
       canvas.img.src = overlay;
-      canvas.img.onload = function () {
+      canvas.img.onload = function drawScratchers() {
         canvas.mycanvas.drawImage(this, 0, 0, canvas.width, canvas.height);
       };
     }
