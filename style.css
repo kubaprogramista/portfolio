@@ -878,10 +878,6 @@ RESPONSYWNOŚĆ
 }
 
 @media only screen and (max-width: 1300px) {
-  body {
-    overflow: hidden;
-  }
-
   .game-content {
     grid-template-columns: 1fr;
     justify-content: center;
