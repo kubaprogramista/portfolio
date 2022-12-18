@@ -1,5 +1,3 @@
-/* eslint-disable linebreak-style */
-
 const canvasArray = document.querySelectorAll('.scratch-box');
 const canvasOverlay = 'png/game_png/overlay.png';
 const resetButton = document.querySelector('.reset-game-button');
