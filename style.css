@@ -499,7 +499,8 @@ PROJECTS
   border-radius: 20px;
   backdrop-filter: blur(3px);
   padding: 80px 3vw 50px 3vw;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 2px solid rgb(30, 30, 30);
   display: flex;
   gap: 5vw;
   transform-origin: 0% 0%;
@@ -534,7 +535,7 @@ PROJECTS
   height: 400px;
   padding: 30px 5px;
   margin: 20px 0;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid rgb(30, 30, 30);
   border-radius: 10px;
 }
 
@@ -570,7 +571,7 @@ PROJECTS
 }
 
 .project-text {
-  font-size: 1.7rem;
+  font-size: 1.3rem;
 }
 
 .project-tech-container {
