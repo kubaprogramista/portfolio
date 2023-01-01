@@ -266,7 +266,7 @@ ABOUT SECTION CONTENT (LEFT SIDE)
 }
 
 .contact-btn:hover {
-  box-shadow: 0 4px 0 #fff;
+  box-shadow: 0 4px 0 whitesmoke;
   transform: translateY(-4px);
 }
 
@@ -560,6 +560,7 @@ PROJECTS
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 12px;
   height: 100%;
   width: 100%;
 }
@@ -572,6 +573,44 @@ PROJECTS
 
 .project-text {
   font-size: 1.3rem;
+}
+
+/* position: relative;
+  display: flex;
+  justify-content: center;
+  aspect-ratio: 2/1;
+  width: 185px;
+  margin: 35px 0 0 0;
+  font-weight: bold;
+  background: transparent;
+  border: 3px solid rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  color: whitesmoke;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out; */
+
+#site-link {
+  aspect-ratio: 2/1;
+  width: 185px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: whitesmoke;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: 3px solid whitesmoke;
+  border-radius: 10px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+#site-link:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 0 whitesmoke;
 }
 
 .project-tech-container {
