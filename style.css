@@ -550,17 +550,20 @@ PROJECTS
 
 .project-images-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
   gap: 10px;
-  border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 10px;
   padding: 10px;
+  margin: 0 20px 0 5px;
   aspect-ratio: 1/1;
-  height: 300px;
+  height: auto;
+}
+
+.project-images-container a {
+  height: 100px;
 }
 
 .project-images-container img {
+  height: 100%;
   border-radius: 4px;
 }
 
