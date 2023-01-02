@@ -532,7 +532,7 @@ PROJECTS
   display: flex;
   align-items: center;
   width: 100%;
-  height: 400px;
+  height: auto;
   padding: 30px 5px;
   margin: 20px 0;
   border: 2px solid rgb(30, 30, 30);
@@ -553,7 +553,7 @@ PROJECTS
   justify-content: center;
   align-items: center;
   aspect-ratio: 1/1;
-  height: 100%;
+  height: 300px;
 }
 
 .project-text-container {
