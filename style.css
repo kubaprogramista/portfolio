@@ -640,6 +640,7 @@ PROJECTS
   background-color: transparent;
   padding: 15px;
   border-radius: 10px;
+  cursor: default;
 }
 
 /*
