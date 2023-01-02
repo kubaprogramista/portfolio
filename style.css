@@ -531,9 +531,10 @@ PROJECTS
 .project-container {
   display: flex;
   align-items: center;
+  gap: 20px;
   width: 100%;
   height: auto;
-  padding: 30px 5px;
+  padding: 30px 10px;
   margin: 20px 0;
   border: 2px solid rgb(30, 30, 30);
   border-radius: 10px;
@@ -553,7 +554,6 @@ PROJECTS
   gap: 10px;
   border-radius: 10px;
   padding: 10px;
-  margin: 0 20px 0 5px;
   aspect-ratio: 1/1;
   height: auto;
 }
@@ -629,8 +629,18 @@ PROJECTS
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 20px;
   height: 100%;
   width: 200px;
+}
+
+.tech {
+  border: 3px solid whitesmoke;
+  font-weight: bold;
+  font-size: 1rem;
+  background-color: transparent;
+  padding: 15px;
+  border-radius: 10px;
 }
 
 /*
