@@ -497,7 +497,7 @@ PROJECTS
   height: 80vh;
   margin: 15vh 0 0 0;
   border-radius: 20px;
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(4px);
   padding: 80px 3vw 50px 3vw;
   background-color: rgba(0, 0, 0, 0.1);
   border: 2px solid rgb(30, 30, 30);
@@ -536,7 +536,6 @@ PROJECTS
   height: auto;
   padding: 30px 10px;
   margin: 20px 0;
-  border: 2px solid rgb(30, 30, 30);
   border-radius: 10px;
 }
 
@@ -628,7 +627,6 @@ PROJECTS
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   gap: 20px;
   height: 100%;
   width: 200px;
