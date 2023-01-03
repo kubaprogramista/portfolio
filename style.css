@@ -157,13 +157,14 @@ ABOUT ME WINDOW
 */
 
 .about-section {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 2px solid rgb(30, 30, 30);
   width: 70vw;
   height: auto;
   /* 10vh - header, 5vh - margin */
   margin: 15vh 0 0 0;
   border-radius: 20px;
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(4px);
   padding: 80px 6vw 0px 6vw;
   display: flex;
   gap: 5vw;
@@ -505,7 +506,7 @@ PROJECTS
   gap: 5vw;
   transform-origin: 0% 0%;
   /* change transform to 0 */
-  transform: scale(100%);
+  transform: scale(0%);
   /* transform: scale(0%); */
   transition: all 0.3s ease-in-out;
 }
@@ -584,21 +585,6 @@ PROJECTS
 .project-text {
   font-size: 1.3rem;
 }
-
-/* position: relative;
-  display: flex;
-  justify-content: center;
-  aspect-ratio: 2/1;
-  width: 185px;
-  margin: 35px 0 0 0;
-  font-weight: bold;
-  background: transparent;
-  border: 3px solid rgba(255, 255, 255, 0.9);
-  border-radius: 10px;
-  color: whitesmoke;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: all 0.15s ease-in-out; */
 
 #site-link {
   aspect-ratio: 2/1;
