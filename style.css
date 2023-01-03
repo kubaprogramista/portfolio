@@ -159,7 +159,6 @@ ABOUT ME WINDOW
   border: 2px solid rgb(30, 30, 30);
   width: 70vw;
   height: auto;
-  /* 10vh - header, 5vh - margin */
   margin: 15vh 0 0 0;
   border-radius: 20px;
   backdrop-filter: blur(4px);
@@ -503,9 +502,7 @@ PROJECTS
   display: flex;
   gap: 5vw;
   transform-origin: 0% 0%;
-  /* change transform to 0 */
   transform: scale(0%);
-  /* transform: scale(0%); */
   transition: all 0.3s ease-in-out;
 }
 

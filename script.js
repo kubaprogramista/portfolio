@@ -1,4 +1,3 @@
-/* eslint-disable linebreak-style */
 const allIcons = document.querySelectorAll(".desktop-file-container");
 const aboutSection = document.querySelector(".about-section");
 const closeAboutBtn = document.querySelector(".close-about-section");
@@ -63,10 +62,6 @@ const closeFunction = (section, icon, closeBtn) => {
 
   closeBtnCopy.style.cursor = "default";
 };
-
-/*
->>>>>>FUNCTION CALLS FOR ICONS / WINDOWS
-*/
 
 /*
 ABOUT ME CALL
