@@ -619,6 +619,9 @@ PROJECTS
 }
 
 .tech {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 3px solid rgb(200, 200, 200);
   color: rgb(200, 200, 200);
   font-weight: bold;
@@ -686,6 +689,22 @@ RESPONSYWNOŚĆ
 }
 
 @media only screen and (max-width: 1300px) {
+  .project-container {
+    flex-direction: column;
+  }
+
+  .project-images-container {
+    width: 100%;
+    height: 120px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .project-tech-container {
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
   .game-content {
     grid-template-columns: 1fr;
     justify-content: center;
@@ -821,6 +840,28 @@ RESPONSYWNOŚĆ
 }
 
 @media only screen and (max-width: 700px) {
+  .project-title {
+    font-size: 1.2rem;
+  }
+
+  .project-text {
+    font-size: 1rem;
+  }
+
+  .project-tech-container * {
+    font-size: 0.8rem;
+  }
+
+  .project-images-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    height: 240px;
+  }
+
+  .project-tech-container {
+    flex-wrap: wrap;
+  }
+
   .form-container {
     display: flex;
     flex-direction: column;
