@@ -581,6 +581,11 @@ PROJECTS
   font-size: 1.3rem;
 }
 
+.link-button-wrapper {
+  display: flex;
+  gap: 30px;
+}
+
 #site-link {
   aspect-ratio: 2/1;
   width: 185px;
