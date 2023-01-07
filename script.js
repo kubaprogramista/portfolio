@@ -163,11 +163,9 @@ projectsIcon.addEventListener("click", () => {
 
 closeProjects.addEventListener("click", () => {
   close(projectsSection, projectsIcon, closeProjects);
-  setTimeout(() => {
-    projectsText.forEach((text) => {
-      text.classList.remove("active");
-    });
-  }, 300);
+  projectsText.forEach((text) => {
+    text.classList.remove("active");
+  });
 });
 
 gameIcon.addEventListener("click", () => {
