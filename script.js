@@ -17,6 +17,7 @@ const projectsIcon = document.querySelector("#projects-icon");
 const gameSection = document.querySelector(".game-section");
 const closeGameBtn = document.querySelector(".close-game-section");
 const gameIcon = document.querySelector("#game-icon");
+const projectsText = document.querySelectorAll(".project-text");
 
 /*
 DESKTOP ICONS HANDLER
@@ -45,7 +46,7 @@ const allIconsHandler = (icons) => {
 OPENING FILES / CLOSING FILES
 */
 
-const openFunction = (section, icon, closeBtn) => {
+const open = (section, icon, closeBtn) => {
   const sectionCopy = section;
   const closeBtnCopy = closeBtn;
   allIconsHandler(allIcons);
@@ -54,7 +55,7 @@ const openFunction = (section, icon, closeBtn) => {
   closeBtnCopy.style.cursor = "pointer";
 };
 
-const closeFunction = (section, icon, closeBtn) => {
+const close = (section, icon, closeBtn) => {
   const sectionCopy = section;
   const closeBtnCopy = closeBtn;
   allIconsHandler(allIcons);
@@ -68,11 +69,11 @@ ABOUT ME CALL
 */
 
 aboutMeIcon.addEventListener("click", () => {
-  openFunction(aboutSection, aboutMeIcon, closeAboutBtn);
+  open(aboutSection, aboutMeIcon, closeAboutBtn);
 });
 
 closeAboutBtn.addEventListener("click", () => {
-  closeFunction(aboutSection, aboutMeIcon, closeAboutBtn);
+  close(aboutSection, aboutMeIcon, closeAboutBtn);
 });
 
 /*
@@ -152,17 +153,27 @@ PROJECTS CALL
 */
 
 projectsIcon.addEventListener("click", () => {
-  openFunction(projectsSection, projectsIcon, closeProjects);
+  open(projectsSection, projectsIcon, closeProjects);
+  setTimeout(() => {
+    projectsText.forEach((text) => {
+      text.classList.add("active");
+    });
+  }, 300);
 });
 
 closeProjects.addEventListener("click", () => {
-  closeFunction(projectsSection, projectsIcon, closeProjects);
+  close(projectsSection, projectsIcon, closeProjects);
+  setTimeout(() => {
+    projectsText.forEach((text) => {
+      text.classList.remove("active");
+    });
+  }, 300);
 });
 
 gameIcon.addEventListener("click", () => {
-  openFunction(gameSection, gameIcon, closeGameBtn);
+  open(gameSection, gameIcon, closeGameBtn);
 });
 
 closeGameBtn.addEventListener("click", () => {
-  closeFunction(gameSection, gameIcon, closeGameBtn);
+  close(gameSection, gameIcon, closeGameBtn);
 });
