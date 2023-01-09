@@ -19,6 +19,10 @@ const closeGameBtn = document.querySelector(".close-game-section");
 const gameIcon = document.querySelector("#game-icon");
 const projectsText = document.querySelectorAll(".project-text");
 const aboutText = document.querySelectorAll(".about-text");
+const aboutLeft = document.querySelector(".about-left");
+const aboutRight = document.querySelector(".about-right");
+const projectContainer = document.querySelectorAll(".project-container");
+const gameContent = document.querySelector(".game-content");
 
 /*
 DESKTOP ICONS HANDLER
@@ -75,6 +79,8 @@ aboutMeIcon.addEventListener("click", () => {
     aboutText.forEach((text) => {
       text.classList.add("active");
     });
+    aboutLeft.classList.add("show");
+    aboutRight.classList.add("show");
   }, 300);
 });
 
@@ -83,6 +89,8 @@ closeAboutBtn.addEventListener("click", () => {
   aboutText.forEach((text) => {
     text.classList.remove("active");
   });
+  aboutLeft.classList.remove("show");
+  aboutRight.classList.remove("show");
 });
 
 /*
@@ -167,6 +175,9 @@ projectsIcon.addEventListener("click", () => {
     projectsText.forEach((text) => {
       text.classList.add("active");
     });
+    projectContainer.forEach((container) => {
+      container.classList.add("active");
+    });
   }, 300);
 });
 
@@ -175,12 +186,19 @@ closeProjects.addEventListener("click", () => {
   projectsText.forEach((text) => {
     text.classList.remove("active");
   });
+  projectContainer.forEach((container) => {
+    container.classList.remove("active");
+  });
 });
 
 gameIcon.addEventListener("click", () => {
   open(gameSection, gameIcon, closeGameBtn);
+  setTimeout(() => {
+    gameContent.classList.add("active");
+  }, 300);
 });
 
 closeGameBtn.addEventListener("click", () => {
   close(gameSection, gameIcon, closeGameBtn);
+  gameContent.classList.remove("active");
 });
