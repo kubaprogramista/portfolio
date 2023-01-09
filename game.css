@@ -25,6 +25,12 @@
   gap: 1vw;
   padding: 0;
   width: 100%;
+  filter: opacity(0);
+  transition: filter 0.3s ease-in-out;
+}
+
+.game-content.active {
+  filter: opacity(1);
 }
 
 .game-statistics {
