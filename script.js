@@ -18,6 +18,7 @@ const gameSection = document.querySelector(".game-section");
 const closeGameBtn = document.querySelector(".close-game-section");
 const gameIcon = document.querySelector("#game-icon");
 const projectsText = document.querySelectorAll(".project-text");
+const aboutText = document.querySelectorAll(".about-text");
 
 /*
 DESKTOP ICONS HANDLER
@@ -70,10 +71,18 @@ ABOUT ME CALL
 
 aboutMeIcon.addEventListener("click", () => {
   open(aboutSection, aboutMeIcon, closeAboutBtn);
+  setTimeout(() => {
+    aboutText.forEach((text) => {
+      text.classList.add("active");
+    });
+  }, 300);
 });
 
 closeAboutBtn.addEventListener("click", () => {
   close(aboutSection, aboutMeIcon, closeAboutBtn);
+  aboutText.forEach((text) => {
+    text.classList.remove("active");
+  });
 });
 
 /*
