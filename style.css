@@ -170,6 +170,24 @@ ABOUT ME WINDOW
   transition: all 0.3s ease-in-out;
 }
 
+.about-left {
+  filter: opacity(0);
+  transition: filter 0.3s ease-in-out;
+}
+
+.about-left.show {
+  filter: opacity(1);
+}
+
+.about-right {
+  filter: opacity(0);
+  transition: filter 0.3s ease-in-out;
+}
+
+.about-right.show {
+  filter: opacity(1);
+}
+
 .header-bar,
 .image-bar,
 .form-bar {
@@ -565,6 +583,12 @@ PROJECTS
   padding: 30px 10px;
   margin: 25px 0;
   border-radius: 10px;
+  filter: opacity(0);
+  transition: filter 0.3s ease-in-out;
+}
+
+.project-container.active {
+  filter: opacity(1);
 }
 
 .project-title {
