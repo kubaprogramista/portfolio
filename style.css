@@ -351,7 +351,7 @@ ABOUT SECTION CONTENT (RIGHT SIDE)
 */
 
 .about-right {
-  width: 40%;
+  width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -427,7 +427,7 @@ floating animation
   display: flex;
   position: absolute;
   top: 5vh;
-  right: 5vw;
+  right: 0;
   width: 550px;
   height: 450px;
   border: 2px solid rgba(30, 30, 30, 0.7);
